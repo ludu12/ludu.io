@@ -31,7 +31,7 @@ interface PostProps {
 
 const Post: React.FC<PostProps> = ({ postData }) => {
   return (
-    <Layout siteTitle={postData.title} linkToHome>
+    <Layout siteTitle={postData.title}>
       <article>
         <h1>{postData.title}</h1>
         <div>
