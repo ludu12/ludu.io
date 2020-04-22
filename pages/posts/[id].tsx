@@ -1,25 +1,25 @@
-import React from 'react'
-import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
-import Date from '../../components/date'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import React from 'react';
+import Layout from '../../components/layout';
+import { getAllPostIds, getPostData } from '../../lib/posts';
+import Date from '../../components/date';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
+  const paths = getAllPostIds();
   return {
     paths,
     fallback: false,
-  }
-}
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
+  const postData = await getPostData(params.id as string);
   return {
     props: {
       postData,
     },
-  }
-}
+  };
+};
 
 interface PostProps {
   postData: {
@@ -35,12 +35,12 @@ const Post: React.FC<PostProps> = ({ postData }) => {
       <article>
         <h1>{postData.title}</h1>
         <div>
-          <Date dateString={postData.date} />
+          <Date dateString={postData.date}/>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}/>
       </article>
     </Layout>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;

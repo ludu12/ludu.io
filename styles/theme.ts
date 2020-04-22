@@ -15,7 +15,7 @@ const light = {
     onPrimary: '#ffffff',
   },
   // ...
-}
+};
 
 const dark = {
   bg: {
@@ -33,7 +33,7 @@ const dark = {
     onPrimary: '#050505',
   },
   // ...
-}
+};
 
 const defaultTheme = {
   fontSizes: [
@@ -58,41 +58,17 @@ const defaultTheme = {
     code: 1.6,
   },
   // ...
-}
+};
 
-export const lightTheme = { ...defaultTheme, ...light }
-export const darkTheme = { ...defaultTheme, ...dark }
+export const lightTheme = { ...defaultTheme, ...light };
+export const darkTheme = { ...defaultTheme, ...dark };
 
 export const theme = {
-  font: {
-    primary: `'Baloo', sans-serif`,
-    secondary: `'Poppins', sans-serif`,
-  },
-  font_size: {
-    small: 'font-size: 20px; line-height: 30px',
-    regular: 'font-size: 24px; line-height: 32px',
-    large: 'font-size: 36px; line-height: 48px',
-    larger: 'font-size: 36px; line-height: 48px',
-    xlarge: 'font-size: 48px; line-height: 56px',
-  },
   colors: {
-    white: {
-      regular: '#FFFFFF',
-      dark: '#F6F6F6',
-    },
-    black: {
-      lighter: '#ABA8AF',
-      light: '#564F62',
-      regular: '#211E26',
-    },
-    primary: '#211E26',
-    secondary: '#253ab5',
+    white: '#FFFFFF',
+    black: '#000000',
+    primary: '#242943',
+    secondary: '#ae64b5',
     accent: '#30b5a5',
   },
-  screen: {
-    xs: '575px',
-    sm: '767px',
-    md: '991px',
-    lg: '1199px',
-  },
-}
+};

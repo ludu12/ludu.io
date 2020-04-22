@@ -10,9 +10,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/ramda": "^0.27.3",
     "date-fns": "^2.12.0",
     "gray-matter": "^4.0.2",
     "next": "9.3.5",
+    "ramda": "^0.27.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "remark": "^12.0.0",
