@@ -1,74 +1,63 @@
 // Theme.ts
-const light = {
-  bg: {
-    primary: '#eff0f5',
-    secondary: '#ffffff',
-    inset: '#e2e4e8',
-    input: 'rgba(65,67,78,0.12)',
-  },
-  text: {
-    primary: '#050505',
-    secondary: '#2f3037',
-    tertiary: '#525560',
-    quarternary: '#9194a1',
-    placeholder: 'rgba(82,85,96,0.5)',
-    onPrimary: '#ffffff',
-  },
-  // ...
+export interface ThemeInterface {
+  primary: string,
+  secondary: string,
+  accent: string,
+  bg: string,
+  text: string,
+  textInverse: string,
+}
+
+export interface ThemePropInterface {
+  white: string,
+  gray1: string,
+  gray2: string,
+  gray3: string,
+  gray4: string,
+  gray5: string,
+  gray6: string,
+  black: string,
+  main: ThemeInterface,
+  nav: {
+    bg: string,
+    text: string,
+  }
+}
+
+const defaults = {
+  white: 'rgba(255,255,255,1)',
+  gray1: 'rgba(255,255,255,0.75)',
+  gray2: 'rgba(255,255,255,0.5)',
+  gray3: 'rgba(255,255,255,0.25)',
+  gray4: 'rgba(0,0,0,0.25)',
+  gray5: 'rgba(0,0,0,0.5)',
+  gray6: 'rgba(0,0,0,0.75)',
+  black: 'rgba(0,0,0,1)',
 };
 
-const dark = {
-  bg: {
-    primary: '#050505',
-    secondary: '#111111',
-    inset: '#111111',
-    input: 'rgba(191,193,201,0.12)',
-  },
-  text: {
-    primary: '#fbfbfc',
-    secondary: '#e3e4e8',
-    tertiary: '#a9abb6',
-    quarternary: '#6c6f7e',
-    placeholder: 'rgba(145,148,161,0.5)',
-    onPrimary: '#050505',
-  },
-  // ...
+export const lightTheme = {
+  primary: 'rgba(42,51,64,1)',
+  secondary: 'rgba(85,128,255,1)',
+  accent: 'rgba(42,128,64,1)',
+  bg: defaults.white,
+  text: defaults.black,
+  textInverse: defaults.white,
 };
 
-const defaultTheme = {
-  fontSizes: [
-    '14px', // 0
-    '16px', // 1
-    '18px', // 2
-    '22px', // 3
-    '26px', // 4
-    '32px', // 5
-    '40px', // 6
-  ],
-  fontWeights: {
-    body: 400,
-    subheading: 500,
-    link: 600,
-    bold: 700,
-    heading: 800,
-  },
-  lineHeights: {
-    body: 1.5,
-    heading: 1.3,
-    code: 1.6,
-  },
-  // ...
+export const darkTheme = {
+  primary: defaults.gray1,
+  secondary: 'rgba(85,128,255,1)',
+  accent: 'rgba(42,128,64,1)',
+  bg: 'rgba(42,51,64,1)',
+  text: defaults.white,
+  textInverse: defaults.black,
 };
 
-export const lightTheme = { ...defaultTheme, ...light };
-export const darkTheme = { ...defaultTheme, ...dark };
-
-export const theme = {
-  colors: {
-    white: '#FFFFFF',
-    black: '#000000',
-    primary: '#242943',
-    secondary: '#ae64b5',
-    accent: '#30b5a5',
+export const theme = (t: ThemeInterface) => ({
+  ...defaults,
+  main: t,
+  nav: {
+    bg: t.primary,
+    text: t.textInverse,
   },
-};
+});

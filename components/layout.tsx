@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import Header from './header';
 import styled from 'styled-components';
+import Footer from './footer';
 
 const Container = styled.div`
   max-width: 48rem;
@@ -25,6 +26,7 @@ const Layout: React.FC<LayoutProps> = ({ children, siteTitle }) => {
       <section>
         <main>{children}</main>
       </section>
+      <Footer/>
     </Container>
   );
 };

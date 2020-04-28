@@ -1,15 +1,15 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedBooksData, getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 import { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
+  const allBooksData = getSortedBooksData();
   return {
     props: {
-      allPostsData,
+      allBooksData,
     },
   };
 };

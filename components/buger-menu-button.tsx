@@ -27,7 +27,7 @@ const StyledBurgerMenu = styled.button<{ open?: boolean }>`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: ${(props) => props.open ? props.theme.colors.white : props.theme.colors.black};
+    background: ${(props) => props.open ? props.theme.main.textInverse : props.theme.main.text};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;

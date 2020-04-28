@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
-// color: ${({ theme: { colors } }: { theme: { colors: { primary: string } } }) => colors.primary};
-
+import { ThemePropInterface } from './theme';
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -9,11 +7,13 @@ const GlobalStyles = createGlobalStyle`
       Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     line-height: 1.6;
     font-size: 18px;
+    background: ${(props: { theme: ThemePropInterface}) => props.theme.main.bg};
   }
 
   a {
-    color: ${({ theme: { colors } }: { theme: { colors: { primary: string } } }) => colors.primary};
+    color: ${(props: { theme: ThemePropInterface}) => props.theme.main.text};
     text-decoration: none;
+    font-size: 24px;
   }
   
   a:hover {
