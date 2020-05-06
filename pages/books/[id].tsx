@@ -1,8 +1,9 @@
 import React from 'react';
 import Layout from '../../components/layout';
-import { getAllBooksIds, getBookData } from '../../lib/posts';
 import Date from '../../components/date';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { getAllBooksIds, getBookData } from '../../lib/books';
+import { Book } from '../../types';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllBooksIds();
@@ -22,20 +23,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 interface BookProps {
-  bookData: {
-    title: string
-    date: string
-    contentHtml: string
-  }
+  bookData: Book
 }
 
-const Book: React.FC<BookProps> = ({ bookData }) => {
+const Id: React.FC<BookProps> = ({ bookData }) => {
   return (
     <Layout siteTitle={bookData.title}>
       <article>
         <h1>{bookData.title}</h1>
         <div>
-          <Date dateString={bookData.date}/>
+          <Date dateString={bookData.startedOn}/>
         </div>
         <div dangerouslySetInnerHTML={{ __html: bookData.contentHtml }}/>
       </article>
@@ -43,4 +40,4 @@ const Book: React.FC<BookProps> = ({ bookData }) => {
   );
 };
 
-export default Book;
+export default Id;

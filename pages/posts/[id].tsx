@@ -3,6 +3,7 @@ import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Date from '../../components/date';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { Post } from '../../types';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
@@ -22,14 +23,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 interface PostProps {
-  postData: {
-    title: string
-    date: string
-    contentHtml: string
-  }
+  postData: Post
 }
 
-const Post: React.FC<PostProps> = ({ postData }) => {
+const Id: React.FC<PostProps> = ({ postData }) => {
   return (
     <Layout siteTitle={postData.title}>
       <article>
@@ -43,4 +40,4 @@ const Post: React.FC<PostProps> = ({ postData }) => {
   );
 };
 
-export default Post;
+export default Id;

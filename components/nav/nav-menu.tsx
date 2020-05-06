@@ -41,6 +41,7 @@ const NavMenu: React.FC<NavMenuProps> = (props) => {
           <NavLink text='Home' href='/' emoji={`🏠`}/>
           <NavLink text='Posts' href='/posts' emoji={`📝`}/>
           <NavLink text='Books' href='/books' emoji={`📚`}/>
+          <NavLink text='Contact Me' href='/contact' emoji={'📇'}/>
         </NavList>
       </Nav>
     </NavModal>

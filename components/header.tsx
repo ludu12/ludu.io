@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import BurgerMenuButton from './buger-menu-button';
-import { Row } from './shared-styled';
+import { Row } from './shared/shared-styled';
 import Brand from './brand';
 import NavMenu from './nav/nav-menu';
 

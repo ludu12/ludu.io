@@ -1,25 +1,22 @@
-import React from 'react'
-import Layout from '../components/layout'
-import { getSortedPostsData } from '../lib/posts'
-import Link from 'next/link'
-import Date from '../components/date'
-import { GetStaticProps } from 'next'
+import React from 'react';
+import Layout from '../components/layout';
+import { getSortedPostsData } from '../lib/posts';
+import Link from 'next/link';
+import Date from '../components/date';
+import { GetStaticProps } from 'next';
+import { Post } from '../types';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
-  }
-}
+  };
+};
 
 interface PostsProps {
-  allPostsData: {
-    date: string
-    title: string
-    id: string
-  }[]
+  allPostsData: Post[]
 }
 
 const Posts: React.FC<PostsProps> = ({ allPostsData }) => {
@@ -32,15 +29,15 @@ const Posts: React.FC<PostsProps> = ({ allPostsData }) => {
             <Link href="/posts/[id]" as={`/posts/${id}`}>
               <a>{title}</a>
             </Link>
-            <br />
+            <br/>
             <small>
-              <Date dateString={date} />
+              <Date dateString={date}/>
             </small>
           </li>
         ))}
       </ul>
     </Layout>
-  )
-}
+  );
+};
 
-export default Posts
+export default Posts;

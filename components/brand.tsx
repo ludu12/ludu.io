@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Row } from './shared-styled';
+import { Row } from './shared/shared-styled';
 import styled from 'styled-components';
 
 const StyledLink = styled.a`
@@ -9,7 +9,7 @@ const StyledLink = styled.a`
        
     &:hover {
         text-decoration: none;
-        color: ${props => props.theme.main.accent};
+        color: ${props => props.theme.main.secondary};
     }
 `;
 
@@ -18,7 +18,7 @@ const StyledSvg = styled.svg`
     transition: all 0.25s;
     
     ${StyledLink}:hover & {
-     fill: ${props => props.theme.main.accent};
+     fill: ${props => props.theme.main.secondary};
     }
 `;
 
@@ -33,8 +33,7 @@ const Brand: React.FC<BrandProps> = () => {
         <StyledLink>
           <StyledSvg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
             <polygon points="0,0 0,200 200,200"/>
-          </StyledSvg>
-          ludu.io
+          </StyledSvg> ludu.io
         </StyledLink>
       </Link>
     </Row>

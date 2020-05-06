@@ -26,9 +26,9 @@ export interface ThemePropInterface {
 
 const defaults = {
   white: 'rgba(255,255,255,1)',
-  gray1: 'rgba(255,255,255,0.75)',
-  gray2: 'rgba(255,255,255,0.5)',
-  gray3: 'rgba(255,255,255,0.25)',
+  gray1: 'rgba(0,0,0,0.1)',
+  gray2: 'rgba(0,0,0,0.15)',
+  gray3: 'rgba(0,0,0,0.2)',
   gray4: 'rgba(0,0,0,0.25)',
   gray5: 'rgba(0,0,0,0.5)',
   gray6: 'rgba(0,0,0,0.75)',

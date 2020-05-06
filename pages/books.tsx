@@ -1,12 +1,13 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { getSortedBooksData, getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 import { GetStaticProps } from 'next';
+import { getFinishedBooks } from '../lib/books';
+import { Book } from '../types';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allBooksData = getSortedBooksData();
+  const allBooksData = getFinishedBooks();
   return {
     props: {
       allBooksData,
@@ -15,26 +16,22 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 interface BooksProps {
-  allBooksData: {
-    date: string
-    title: string
-    id: string
-  }[]
+  allBooksData: Book[]
 }
 
 const Books: React.FC<BooksProps> = ({ allBooksData }) => {
   return (
-    <Layout siteTitle="Posts">
+    <Layout siteTitle="Books">
       <h1>Books</h1>
       <ul>
-        {allBooksData.map(({ id, date, title }) => (
+        {allBooksData.map(({ id, startedOn, title }) => (
           <li key={id}>
             <Link href="/books/[id]" as={`/books/${id}`}>
               <a>{title}</a>
             </Link>
             <br/>
             <small>
-              <Date dateString={date}/>
+              <Date dateString={startedOn}/>
             </small>
           </li>
         ))}
