@@ -3,7 +3,7 @@ title: 'Atomic Habits'
 author: 'James Clear'  
 startedOn: '2020-05-01' 
 media: 'Audible'  
-mySummary: 'This is a book about mastering or developing your own system of creating habits.'  
+mySummary: 'This is a book about habits. More specifically, mastering/developing a system of creating habits.'  
 cover: 'images/atomic-habits.jpg'  
 ---
 

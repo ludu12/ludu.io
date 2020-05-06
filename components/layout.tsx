@@ -15,8 +15,8 @@ interface LayoutProps {
   siteTitle?: string
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, siteTitle }) => {
-
+const Layout: React.FC<LayoutProps> = (props) => {
+  const { children, siteTitle } = props;
   return (
     <Container>
       <Head>

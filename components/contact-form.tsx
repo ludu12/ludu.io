@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Paper, Row } from './shared/shared-styled';
+import { Button, Paper, Row } from './shared/shared-styled';
 import styled from 'styled-components';
 
 const Form = styled.form`
@@ -16,9 +16,9 @@ const Column = styled.div`
 
 const Input = styled.input`
   padding: 0.5em;
-  border-radius: 0.1em;
+  border-radius: 0.2em;
   border: 0.1em solid ${props => props.theme.main.primary};
-  background-color: ${props => props.theme.main.bg};
+  background-color: ${props => props.theme.neturals.lightGray1};
   
   &:focus {
     outline: 0.2em solid ${props => props.theme.main.secondary};
@@ -27,9 +27,9 @@ const Input = styled.input`
 
 const TextArea = styled.textarea`
   padding: 0.5em;
-  border-radius: 0.1em;
+  border-radius: 0.2em;
   border: 0.1em solid ${props => props.theme.main.primary};
-  background-color: ${props => props.theme.main.bg};
+  background-color: ${props => props.theme.neturals.lightGray1};
   resize: none;
   height: 5em;
   
@@ -38,22 +38,9 @@ const TextArea = styled.textarea`
   }
 `;
 
-const Submit = styled.button`
-  padding: 1em;
-  margin: 0.5em 0.5em 0.5em 0;
-  border-radius: 0.5em;
-  border: 0;
-  background-color: ${props => props.theme.main.primary};
-  color: ${props => props.theme.main.textInverse};
-  
-  &:focus {
-    outline: none;
-  }
- 
-  &:disabled {
-    background-color: ${props => props.theme.gray5};
-  }
-`;
+const Status = styled.span`
+  margin: 0 1em;
+`
 
 interface ContactFormProps {
 }
@@ -110,8 +97,10 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                     value={form.message}/>
         </Column>
         <Row justify='flex-start'>
-          <Submit disabled={status !== 'idle'}>SUBMIT</Submit>
-          {showStatus()}
+          <Button disabled={status !== 'idle'}>Submit</Button>
+          <Status>
+            {showStatus()}
+          </Status>
         </Row>
       </Form>
     </Paper>

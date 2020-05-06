@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Date from '../components/date';
 import { GetStaticProps } from 'next';
 import { getFinishedBooks } from '../lib/books';
-import { Book } from '../types';
+import { Book } from '../lib/types';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allBooksData = getFinishedBooks();
@@ -19,7 +19,8 @@ interface BooksProps {
   allBooksData: Book[]
 }
 
-const Books: React.FC<BooksProps> = ({ allBooksData }) => {
+const Books: React.FC<BooksProps> = (props) => {
+  const { allBooksData } = props;
   return (
     <Layout siteTitle="Books">
       <h1>Books</h1>

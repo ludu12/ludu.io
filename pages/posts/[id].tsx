@@ -3,7 +3,7 @@ import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Date from '../../components/date';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Post } from '../../types';
+import { Post } from '../../lib/types';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();

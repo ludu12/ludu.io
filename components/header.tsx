@@ -3,8 +3,12 @@ import BurgerMenuButton from './buger-menu-button';
 import { Row } from './shared/shared-styled';
 import Brand from './brand';
 import NavMenu from './nav/nav-menu';
+import DarkModeButton from './dark-mode-button';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+}
+
+const Header: React.FC<HeaderProps> = (props) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const toggle = () => {
@@ -15,10 +19,13 @@ const Header: React.FC = () => {
     <>
       <Row>
         <Brand/>
-        <BurgerMenuButton
-          open={open}
-          onClick={toggle}
-        />
+        <Row>
+          <DarkModeButton/>
+          <BurgerMenuButton
+            open={open}
+            onClick={toggle}
+          />
+        </Row>
       </Row>
       <NavMenu hidden={!open}/>
     </>

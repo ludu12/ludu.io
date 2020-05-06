@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 import BookCard from '../components/book-card';
 import { GetStaticProps } from 'next';
 import { getLatestAudibleBook } from '../lib/books';
-import { Book } from '../types';
+import { Book } from '../lib/types';
 
 export const getStaticProps: GetStaticProps = async () => {
   const audibleBook = getLatestAudibleBook();
@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 interface HomeProps {
-  audibleBook: Book
+  audibleBook: Book,
 }
 
 const Home: React.FC<HomeProps> = (props) => {
@@ -24,18 +24,15 @@ const Home: React.FC<HomeProps> = (props) => {
       <div>
         <h1>Hi, I'm Luke 👋</h1>
         <p>I'm a Software Engineer from Des Moines.
-          This is my personal website where I post about things I've done and books I've
+          This is my personal website where I post about things I've done, thoughts I've had, and books I've
           read.</p>
+        <p>My online resume can be found here</p>
       </div>
 
       <div>
         <h1>Audible</h1>
+        <p>I listen to Audible a lot... This is what I'm currently listening to:</p>
         <BookCard book={props.audibleBook}/>
-      </div>
-
-      <div>
-        <h1>Lastest Adventure</h1>
-        <p>The last trip I went on was skiing in BigSky Montana</p>
       </div>
     </Layout>
   );

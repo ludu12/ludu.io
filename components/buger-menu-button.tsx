@@ -1,5 +1,5 @@
-import * as React from 'react'
-import styled from 'styled-components'
+import * as React from 'react';
+import styled from 'styled-components';
 
 interface BurgerProps {
   open?: boolean
@@ -18,6 +18,7 @@ const StyledBurgerMenu = styled.button<{ open?: boolean }>`
   border: none;
   cursor: pointer;
   padding: 0;
+  margin: 0 0 0 1em;
   z-index: 10;
 
   &:focus {
@@ -40,23 +41,23 @@ const StyledBurgerMenu = styled.button<{ open?: boolean }>`
     :nth-child(2) {
       opacity: ${(props) => (props.open ? '0' : '1')};
       transform: ${(props) =>
-        props.open ? 'translateX(-20px)' : 'translateX(0)'};
+  props.open ? 'translateX(-20px)' : 'translateX(0)'};
     }
 
     :nth-child(3) {
       transform: ${(props) => (props.open ? 'rotate(-45deg)' : 'rotate(0)')};
     }
   }
-`
+`;
 
 const BurgerMenuButton: React.FC<BurgerProps> = ({ open, onClick }) => {
   return (
     <StyledBurgerMenu open={open} onClick={onClick}>
-      <div />
-      <div />
-      <div />
+      <div/>
+      <div/>
+      <div/>
     </StyledBurgerMenu>
-  )
-}
+  );
+};
 
-export default BurgerMenuButton
+export default BurgerMenuButton;

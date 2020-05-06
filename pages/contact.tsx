@@ -5,7 +5,7 @@ import ContactForm from '../components/contact-form';
 interface ContactProps {
 }
 
-const Contact: React.FC<ContactProps> = () => {
+const Contact: React.FC<ContactProps> = (props) => {
   return (
     <Layout siteTitle="Contact">
       <h1>Contact Me</h1>

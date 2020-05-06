@@ -4,7 +4,7 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 import { GetStaticProps } from 'next';
-import { Post } from '../types';
+import { Post } from '../lib/types';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -19,7 +19,8 @@ interface PostsProps {
   allPostsData: Post[]
 }
 
-const Posts: React.FC<PostsProps> = ({ allPostsData }) => {
+const Posts: React.FC<PostsProps> = (props) => {
+  const { allPostsData } = props;
   return (
     <Layout siteTitle="Posts">
       <h1>Blog Posts</h1>

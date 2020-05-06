@@ -1,5 +1,4 @@
-import fs from 'fs';
-import { getMarkdownFilename, readMarkdownFileContent, sortByFinishedOn, sortByStartedOn } from './utils';
+import { getMarkdownFilenames, readMarkdownFileContent, sortByFinishedOn, sortByStartedOn } from './utils';
 import path from 'path';
 import remark from 'remark';
 import html from 'remark-html';
@@ -7,24 +6,23 @@ import html from 'remark-html';
 const booksDirectory = path.join(process.cwd(), 'books');
 
 function getAllBooks() {
-  const fileNames = fs.readdirSync(booksDirectory);
-  return fileNames.map((fileName) => {
-    const matterResult = readMarkdownFileContent(booksDirectory, getMarkdownFilename(fileName));
+  return getMarkdownFilenames(booksDirectory).map(id => {
+    const matterResult = readMarkdownFileContent(booksDirectory, id);
     return {
-      id: getMarkdownFilename(fileName),
+      id,
       ...(matterResult.data as { title: string, author: string, startedOn: string, finishedOn: string, media: string, mySummary: string, cover: string }),
     };
   });
 }
 
 export function getFinishedBooks() {
-  return sortByFinishedOn(getAllBooks().filter(book => !Boolean(book.finishedOn)));
+  return sortByFinishedOn(getAllBooks().filter(book => Boolean(book.finishedOn)));
 }
 
 export function getLatestAudibleBook() {
   let audibleBooks = sortByStartedOn(getAllBooks().filter(book => book.media === 'Audible'));
 
-  if(audibleBooks){
+  if (audibleBooks) {
     return audibleBooks[0];
   }
 
@@ -32,8 +30,7 @@ export function getLatestAudibleBook() {
 }
 
 export function getAllBooksIds() {
-  const fileNames = fs.readdirSync(booksDirectory);
-  return fileNames.map(getMarkdownFilename).map(id => ({ params: { id } }));
+  return getMarkdownFilenames(booksDirectory).map(id => ({ params: { id } }));
 }
 
 export async function getBookData(id: string) {

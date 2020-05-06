@@ -4,7 +4,7 @@ import NavLink from './nav-link';
 
 const NavModal = styled.div<{ hidden?: boolean }>`
     display: flex;
-    top: 0 ;
+    top: 0;
     left: 0;
     position: absolute;
     width: 100%;
@@ -12,7 +12,7 @@ const NavModal = styled.div<{ hidden?: boolean }>`
     transition: all 0.25s;
     opacity: ${(props) => props.hidden ? '0' : '.9'};
     visibility: ${(props) => props.hidden ? 'hidden' : 'visibile'};
-    background: ${props => props.theme.nav.bg}
+    background: ${props => props.theme.main.bgInverse}
 `;
 
 const Nav = styled.nav`
@@ -21,6 +21,7 @@ const Nav = styled.nav`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 0 20em 0;
 `;
 
 const NavList = styled.ul`
@@ -39,9 +40,10 @@ const NavMenu: React.FC<NavMenuProps> = (props) => {
       <Nav>
         <NavList>
           <NavLink text='Home' href='/' emoji={`🏠`}/>
-          <NavLink text='Posts' href='/posts' emoji={`📝`}/>
+          <NavLink text='Posts' href='/posts' emoji={`✍🏼`}/>
           <NavLink text='Books' href='/books' emoji={`📚`}/>
-          <NavLink text='Contact Me' href='/contact' emoji={'📇'}/>
+          <NavLink text='Contact Me' href='/contact' emoji={'💌️'}/>
+          <NavLink text='Resume' href='/resume' emoji={'📜'}/>
         </NavList>
       </Nav>
     </NavModal>

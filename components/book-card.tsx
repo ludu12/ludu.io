@@ -1,6 +1,6 @@
 import React from 'react';
-import { Paper, Row } from './shared/shared-styled';
-import { Book } from '../types';
+import { Column, Paper, Row } from './shared/shared-styled';
+import { Book } from '../lib/types';
 import styled from 'styled-components';
 
 interface BookCardProps {
@@ -8,34 +8,47 @@ interface BookCardProps {
 }
 
 const Cover = styled.img`
-  height: 8em;
-  width: 8em;
-`
+  height: 7em;
+  width: 7em;
+  align-self: center;
+  margin: 0 1em 0 0;
+`;
 
 const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-`
-
+const Description = styled.small`
+  margin: 0.5em 0 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+`;
 
 const BookCard: React.FC<BookCardProps> = (props) => {
-  const { book} = props;
+  const { book } = props;
 
-  if(!book){
+  if (!book) {
     return null;
   }
 
   return (
-      <Paper>
-        <Row>
-          <Cover src={book.cover} alt={book.title}/>
+    <Paper>
+      <Row align='flex-start'>
+        <Cover src={book.cover} alt={book.title}/>
+        <Column>
           <Title>
-            <h1>{book.title}</h1>
-            <h3>By {book.author}</h3>
+            <strong>{book.title}</strong>
+            <small>By {book.author}</small>
           </Title>
-          <p>{book.mySummary}</p>
-        </Row>
-      </Paper>
-    );
+          <Description>{book.mySummary}</Description>
+        </Column>
+      </Row>
+    </Paper>
+  );
 };
 
 export default BookCard;

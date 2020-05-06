@@ -2,19 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const StyledListItem = styled.li<{ emoji?: string }>`
-    
-    ${props => props.emoji ? 
-      `&:before {
-        content: "${props.emoji} ";
-      }` :
-      `&:before {
-        content: "🏠 ";
-      }`}
-`;
-
 const StyledLink = styled.a`
-    color: ${props => props.theme.nav.text};
+    color: ${props => props.theme.main.textInverse};
 `;
 
 interface NavLinkProps {
@@ -25,11 +14,11 @@ interface NavLinkProps {
 
 const NavLink: React.FC<NavLinkProps> = (props) => {
   return (
-    <StyledListItem emoji={props.emoji}>
+    <li>
       <Link href={props.href} passHref>
-        <StyledLink>{props.text}</StyledLink>
+        <StyledLink>{props.emoji} {props.text}</StyledLink>
       </Link>
-    </StyledListItem>
+    </li>
   );
 };
 

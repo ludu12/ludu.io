@@ -3,7 +3,7 @@ import Layout from '../../components/layout';
 import Date from '../../components/date';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { getAllBooksIds, getBookData } from '../../lib/books';
-import { Book } from '../../types';
+import { Book } from '../../lib/types';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllBooksIds();

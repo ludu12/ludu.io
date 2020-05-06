@@ -5,6 +5,11 @@ import matter from 'gray-matter';
 
 export const getMarkdownFilename = (filename: string) => filename.replace(/\.md$/, '');
 
+export const getMarkdownFilenames = (directory: string) => {
+  const fileNames = fs.readdirSync(directory);
+  return fileNames.map(getMarkdownFilename);
+};
+
 export const readMarkdownFileContent = (directory: string, id: string) => {
   const fullPath = path.join(directory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');

@@ -16,3 +16,4 @@ export interface Post {
   id: string,
   contentHtml: string
 }
+
