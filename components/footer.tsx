@@ -8,21 +8,20 @@ const FooterWrapper = styled.div`
   padding: 0 5rem;
 `;
 
-interface FooterProps {
-}
+interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
   return (
     <FooterWrapper>
-      <Row justify='space-around'>
+      <Row justify="space-around">
         <a href="https://twitter.com/LukeDunscombe">
-          <FiTwitter/>
+          <FiTwitter />
         </a>
         <a href="https://github.com/ludu12">
-          <FiGithub/>
+          <FiGithub />
         </a>
         <a href="https://www.linkedin.com/in/luke-dunscombe-b9712a8b">
-          <FiLinkedin/>
+          <FiLinkedin />
         </a>
       </Row>
     </FooterWrapper>

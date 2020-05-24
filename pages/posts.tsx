@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 interface PostsProps {
-  allPostsData: Post[]
+  allPostsData: Post[];
 }
 
 const Posts: React.FC<PostsProps> = (props) => {
@@ -30,9 +30,9 @@ const Posts: React.FC<PostsProps> = (props) => {
             <Link href="/posts/[id]" as={`/posts/${id}`}>
               <a>{title}</a>
             </Link>
-            <br/>
+            <br />
             <small>
-              <Date dateString={date}/>
+              <Date dateString={date} />
             </small>
           </li>
         ))}

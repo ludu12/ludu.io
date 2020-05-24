@@ -10,7 +10,7 @@ const NavModal = styled.div<{ hidden?: boolean }>`
     width: 100%;
     height: 100%;
     transition: all 0.25s;
-    opacity: ${(props) => props.hidden ? '0' : '.9'};
+    opacity: ${(props) => props.hidden ? '0' : '1'};
     visibility: ${(props) => props.hidden ? 'hidden' : 'visibile'};
     background: ${props => props.theme.main.bgInverse}
 `;
@@ -19,15 +19,11 @@ const Nav = styled.nav`
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0 20em 0;
+    padding: 5em 0 0 0;
 `;
 
 const NavList = styled.ul`
     list-style: none;
-    margin: 0;
-    padding: 0;
 `;
 
 interface NavMenuProps {
@@ -39,11 +35,15 @@ const NavMenu: React.FC<NavMenuProps> = (props) => {
     <NavModal hidden={props.hidden}>
       <Nav>
         <NavList>
-          <NavLink text='Home' href='/' emoji={`🏠`}/>
-          <NavLink text='Posts' href='/posts' emoji={`✍🏼`}/>
-          <NavLink text='Books' href='/books' emoji={`📚`}/>
-          <NavLink text='Contact Me' href='/contact' emoji={'💌️'}/>
-          <NavLink text='Resume' href='/resume' emoji={'📜'}/>
+          <NavLink text='Home' href='/'/>
+          {/*<NavLink text='Books' href='/books'/>*/}
+          <NavLink text='Contact Me' href='/contact'/>
+          <NavLink text='Resume' href='/resume'/>
+          {/*<NavLink text='Home' href='/' emoji={`🏠`}/>*/}
+          {/*<NavLink text='Posts' href='/posts' emoji={`✍🏼`}/>*/}
+          {/*<NavLink text='Books' href='/books' emoji={`📚`}/>*/}
+          {/*<NavLink text='Contact Me' href='/contact' emoji={'💌️'}/>*/}
+          {/*<NavLink text='Resume' href='/resume' emoji={'📜'}/>*/}
         </NavList>
       </Nav>
     </NavModal>

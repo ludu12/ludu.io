@@ -18,7 +18,6 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: ${(props: { theme: ThemePropInterface}) => props.theme.main.text};
     text-decoration: none;
-    font-size: 1.5em;
   }
 
 `;

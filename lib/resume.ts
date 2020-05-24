@@ -15,6 +15,10 @@ export async function getResume() {
 
   return {
     contentHtml,
-    ...(matterResult.data as { title: string, lastUpdated: string, image: string }),
+    ...(matterResult.data as {
+      title: string;
+      lastUpdated: string;
+      image: string;
+    }),
   };
 }

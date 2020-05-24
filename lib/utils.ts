@@ -3,7 +3,8 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export const getMarkdownFilename = (filename: string) => filename.replace(/\.md$/, '');
+export const getMarkdownFilename = (filename: string) =>
+  filename.replace(/\.md$/, '');
 
 export const getMarkdownFilenames = (directory: string) => {
   const fileNames = fs.readdirSync(directory);

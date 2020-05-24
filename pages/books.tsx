@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 interface BooksProps {
-  allBooksData: Book[]
+  allBooksData: Book[];
 }
 
 const Books: React.FC<BooksProps> = (props) => {
@@ -30,9 +30,9 @@ const Books: React.FC<BooksProps> = (props) => {
             <Link href="/books/[id]" as={`/books/${id}`}>
               <a>{title}</a>
             </Link>
-            <br/>
+            <br />
             <small>
-              <Date dateString={startedOn}/>
+              <Date dateString={startedOn} />
             </small>
           </li>
         ))}

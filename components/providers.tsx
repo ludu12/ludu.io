@@ -9,11 +9,11 @@ const dark = theme(darkTheme);
 const light = theme(lightTheme);
 
 interface ProvidersProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Providers: React.FC<ProvidersProps> = (props) => {
-  const darkMode = useDarkMode(false, { storageKey: null, onChange: null });
+  const darkMode = useDarkMode(false);
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -22,8 +22,10 @@ const Providers: React.FC<ProvidersProps> = (props) => {
 
   const body = (
     <ThemeProvider theme={darkMode.value ? dark : light}>
-      <ThemeContext.Provider value={{ darkMode: darkMode.value, toggle: darkMode.toggle }}>
-        <GlobalStyles/>
+      <ThemeContext.Provider
+        value={{ darkMode: darkMode.value, toggle: darkMode.toggle }}
+      >
+        <GlobalStyles />
         {props.children}
       </ThemeContext.Provider>
     </ThemeProvider>

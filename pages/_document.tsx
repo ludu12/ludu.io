@@ -1,4 +1,10 @@
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import Document, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import React from 'react';
 
@@ -32,11 +38,11 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head/>
+        <Head />
         <body>
-        <script src="noflash.js"/>
-        <Main/>
-        <NextScript/>
+          <script src="noflash.js" />
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );

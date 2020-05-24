@@ -5,7 +5,7 @@ import Providers from '../components/providers';
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <Providers>
-      <Component {...pageProps}/>
+      <Component {...pageProps} />
     </Providers>
   );
 };

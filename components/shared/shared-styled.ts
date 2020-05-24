@@ -19,7 +19,7 @@ export const Paper = styled.div`
   padding: 1em;
   background-color: ${props => props.theme.main.bg2};
   border-radius: 0.1em;
-  box-shadow: 0 0 0.5em ${props => props.theme.main.shadow}, 0 0 1em ${props => props.theme.main.shadowVarient};
+  box-shadow: 0 0 0.2em ${props => props.theme.main.shadow}, 0 0 0.5em ${props => props.theme.main.shadowVarient};
 `;
 
 export const Button = styled.button`
@@ -36,4 +36,15 @@ export const Button = styled.button`
   &:disabled {
     background-color: ${props => props.theme.neturals.gray};
   }
+`;
+
+export const Thumbnail = styled.img`
+  height: 3em;
+  width: 3em;
+  border-radius: 1.5em;
+  margin: 0 1em 0 0;
+`;
+
+export const Italic = styled.i`
+  color: ${(props) => props.theme.neturals.gray};
 `;
