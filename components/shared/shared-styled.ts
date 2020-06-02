@@ -48,3 +48,8 @@ export const Thumbnail = styled.img`
 export const Italic = styled.i`
   color: ${(props) => props.theme.neturals.gray};
 `;
+
+
+export const StyledLink = styled.a`
+  text-decoration: none;
+`;

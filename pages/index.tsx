@@ -26,7 +26,7 @@ const Home: React.FC<HomeProps> = (props) => {
   return (
     <Layout siteTitle="Home">
       <div>
-        <h1>Hi, I'm Luke Dunscombe</h1>
+        <h1>Hi, I'm Luke</h1>
         <p>
           I'm a Software Consultant from Des Moines. This is my personal website
           where I post about things I've done, thoughts I've had, and books I've
