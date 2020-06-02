@@ -1,12 +1,16 @@
 import path from 'path';
 import remark from 'remark';
 import html from 'remark-html';
-import { getMarkdownFilenames, readMarkdownFileContent, sortByDate } from './utils';
+import {
+  getMarkdownFilenames,
+  readMarkdownFileContent,
+  sortByDate,
+} from './utils';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 export function getSortedPostsData() {
-  const allPostsData = getMarkdownFilenames(postsDirectory).map(id => {
+  const allPostsData = getMarkdownFilenames(postsDirectory).map((id) => {
     const matterResult = readMarkdownFileContent(postsDirectory, id);
     return {
       id,
@@ -18,7 +22,7 @@ export function getSortedPostsData() {
 }
 
 export function getAllPostIds() {
-  return getMarkdownFilenames(postsDirectory).map(id => ({ params: { id } }));
+  return getMarkdownFilenames(postsDirectory).map((id) => ({ params: { id } }));
 }
 
 export async function getPostData(id: string) {
@@ -35,4 +39,3 @@ export async function getPostData(id: string) {
     ...(matterResult.data as { date: string; title: string }),
   };
 }
-

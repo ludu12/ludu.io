@@ -4,7 +4,7 @@ import { Book } from '../lib/types';
 import styled from 'styled-components';
 
 interface BookCardProps {
-  book: Book
+  book: Book;
 }
 
 const Cover = styled.img`
@@ -24,7 +24,7 @@ const Description = styled.small`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3; 
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 `;
 
@@ -37,8 +37,8 @@ const BookCard: React.FC<BookCardProps> = (props) => {
 
   return (
     <Paper>
-      <Row align='flex-start'>
-        <Cover src={book.cover} alt={book.title}/>
+      <Row align="flex-start">
+        <Cover src={book.cover} alt={book.title} />
         <Column>
           <Title>
             <strong>{book.title}</strong>

@@ -5,8 +5,7 @@ import Brand from './brand';
 import NavMenu from './nav/nav-menu';
 import DarkModeButton from './dark-mode-button';
 
-interface HeaderProps {
-}
+interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = (props) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -18,16 +17,13 @@ const Header: React.FC<HeaderProps> = (props) => {
   return (
     <>
       <Row>
-        <Brand/>
+        <Brand />
         <Row>
-          <DarkModeButton/>
-          <BurgerMenuButton
-            open={open}
-            onClick={toggle}
-          />
+          <DarkModeButton />
+          <BurgerMenuButton open={open} onClick={toggle} />
         </Row>
       </Row>
-      <NavMenu hidden={!open}/>
+      <NavMenu hidden={!open} />
     </>
   );
 };

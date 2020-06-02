@@ -11,8 +11,8 @@ const Container = styled.div`
 `;
 
 interface LayoutProps {
-  children: React.ReactNode
-  siteTitle?: string
+  children: React.ReactNode;
+  siteTitle?: string;
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
@@ -20,13 +20,13 @@ const Layout: React.FC<LayoutProps> = (props) => {
   return (
     <Container>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{siteTitle} - ludu.io</title>
       </Head>
-      <Header/>
+      <Header />
       <section>
         <main>{children}</main>
       </section>
-      <Footer/>
+      <Footer />
     </Container>
   );
 };

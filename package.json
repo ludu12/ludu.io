@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "format": "prettier --write **/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write **/*.{js,ts,tsx}",
     "lint": "eslint --fix '{components,lib,pages}/**/*.{js,jsx,ts,tsx}'",
     "start": "next start"
   },

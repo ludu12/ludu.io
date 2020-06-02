@@ -17,36 +17,38 @@ const Column = styled.div`
 const Input = styled.input`
   padding: 0.5em;
   border-radius: 0.2em;
-  border: 0.1em solid ${props => props.theme.main.primary};
-  background-color: ${props => props.theme.neturals.lightGray1};
-  
+  border: 0.05em solid ${(props) => props.theme.main.primary};
+  background-color: ${(props) => props.theme.neturals.lightGray1};
+
   &:focus {
-    outline: 0.2em solid ${props => props.theme.main.secondary};
+    outline: 0.2em solid ${(props) => props.theme.main.secondary};
   }
 `;
 
 const TextArea = styled.textarea`
   padding: 0.5em;
   border-radius: 0.2em;
-  border: 0.1em solid ${props => props.theme.main.primary};
-  background-color: ${props => props.theme.neturals.lightGray1};
+  border: 0.1em solid ${(props) => props.theme.main.primary};
+  background-color: ${(props) => props.theme.neturals.lightGray1};
   resize: none;
   height: 5em;
-  
+
   &:focus {
-    outline: 0.2em solid ${props => props.theme.main.secondary};
+    outline: 0.2em solid ${(props) => props.theme.main.secondary};
   }
 `;
 
 const Status = styled.span`
   margin: 0 1em;
-`
+`;
 
-interface ContactFormProps {
-}
+interface ContactFormProps {}
 
 const ContactForm: React.FC<ContactFormProps> = () => {
-  const [form, setForm] = useState<{ email: string, message: string }>({ email: '', message: '' });
+  const [form, setForm] = useState<{ email: string; message: string }>({
+    email: '',
+    message: '',
+  });
 
   const [status, setStatus] = useState('idle');
 
@@ -71,7 +73,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
   const showStatus = () => {
     switch (status) {
       case 'pending':
-        return 'Loading...';
+        return 'Sending...';
       case 'success':
         return 'Success! Expect to hear from me soon!';
       case 'error':
@@ -86,21 +88,26 @@ const ContactForm: React.FC<ContactFormProps> = () => {
       <Form onSubmit={handleSubmit}>
         <Column>
           <label>Email</label>
-          <Input type="email" name="email" required
-                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                 value={form.email}/>
+          <Input
+            type="email"
+            name="email"
+            required
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            value={form.email}
+          />
         </Column>
         <Column>
           <label>Message</label>
-          <TextArea name="message" required
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    value={form.message}/>
+          <TextArea
+            name="message"
+            required
+            onChange={(e) => setForm({ ...form, message: e.target.value })}
+            value={form.message}
+          />
         </Column>
-        <Row justify='flex-start'>
+        <Row justify="flex-start">
           <Button disabled={status !== 'idle'}>Submit</Button>
-          <Status>
-            {showStatus()}
-          </Status>
+          <Status>{showStatus()}</Status>
         </Row>
       </Form>
     </Paper>

@@ -14,13 +14,6 @@ const GlobalStyles = createGlobalStyle`
   button {
     font-size: 1em;
   }
-
-  a {
-    color: ${(props: { theme: ThemePropInterface}) => props.theme.main.text};
-    text-decoration: none;
-    font-size: 1.5em;
-  }
-
 `;
 
 export default GlobalStyles;

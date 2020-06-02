@@ -2,13 +2,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 interface BurgerProps {
-  open?: boolean
-  onClick?: () => void
+  open?: boolean;
+  onClick?: () => void;
 }
 
 const StyledBurgerMenu = styled.button<{ open?: boolean }>`
-  top: 5%;
-  left: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -26,9 +24,10 @@ const StyledBurgerMenu = styled.button<{ open?: boolean }>`
   }
 
   div {
-    width: 2rem;
+    width: 2em;
     height: 0.25rem;
-    background: ${(props) => props.open ? props.theme.main.textInverse : props.theme.main.text};
+    background: ${(props) =>
+      props.open ? props.theme.main.textInverse : props.theme.main.text};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -40,8 +39,6 @@ const StyledBurgerMenu = styled.button<{ open?: boolean }>`
 
     :nth-child(2) {
       opacity: ${(props) => (props.open ? '0' : '1')};
-      transform: ${(props) =>
-  props.open ? 'translateX(-20px)' : 'translateX(0)'};
     }
 
     :nth-child(3) {
@@ -53,9 +50,9 @@ const StyledBurgerMenu = styled.button<{ open?: boolean }>`
 const BurgerMenuButton: React.FC<BurgerProps> = ({ open, onClick }) => {
   return (
     <StyledBurgerMenu open={open} onClick={onClick}>
-      <div/>
-      <div/>
-      <div/>
+      <div />
+      <div />
+      <div />
     </StyledBurgerMenu>
   );
 };
