@@ -10,6 +10,10 @@ const GlobalStyles = createGlobalStyle`
     color: ${(props: { theme: ThemePropInterface}) => props.theme.main.text};
     transition: all 0.3s linear;
   }
+  
+  a {
+    color: ${(props: { theme: ThemePropInterface}) => props.theme.main.primary};
+  }
 
   button {
     font-size: 1em;

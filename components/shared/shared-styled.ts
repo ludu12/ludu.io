@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ThemePropInterface } from '../../lib/styles/theme';
 
 export const Row = styled.div<{ justify?: string, align?: string }>`
   justify-content: ${props => props.justify || 'space-between'};
@@ -50,6 +51,4 @@ export const Italic = styled.i`
 `;
 
 
-export const StyledLink = styled.a`
-  text-decoration: none;
-`;
+

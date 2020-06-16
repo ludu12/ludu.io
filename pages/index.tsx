@@ -3,11 +3,7 @@ import Layout from '../components/layout';
 import { GetStaticProps } from 'next';
 import { getLatestAudibleBook } from '../lib/books';
 import { Book } from '../lib/types';
-import styled from 'styled-components';
-
-const StyledLink = styled.a`
-  color: ${(props) => props.theme.main.primary};
-`;
+import Link from 'next/link';
 
 export const getStaticProps: GetStaticProps = async () => {
   const audibleBook = getLatestAudibleBook();
@@ -34,11 +30,17 @@ const Home: React.FC<HomeProps> = (props) => {
         </p>
         <p>
           Feel free to reach out on any of my social medias, or{' '}
-          <StyledLink href="/contact">contact me</StyledLink> directly.
+          <Link href={'/contact'}>
+            <a>contact me</a>
+          </Link>
+          {' '} directly.
         </p>
         <p>
           My online resume can also be found{' '}
-          <StyledLink href="/resume">here</StyledLink>
+          <Link href={'/resume'}>
+            <a>here</a>
+          </Link>
+          .
         </p>
       </div>
 

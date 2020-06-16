@@ -6,7 +6,7 @@ const NavModal = styled.div<{ hidden?: boolean }>`
     display: flex;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     transition: all 0.25s;
@@ -20,6 +20,8 @@ const Nav = styled.nav`
     flex: 1;
     flex-direction: column;
     padding: 5em 0 0 0;
+    max-width: 48em;
+    margin: 0 auto 0;
 `;
 
 const NavList = styled.ul`

@@ -1,7 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { StyledLink } from './shared/shared-styled';
+import { ThemePropInterface } from '../lib/styles/theme';
+
+const StyledLink = styled.a`
+  color: ${(props: { theme: ThemePropInterface}) => props.theme.main.text};
+  text-decoration: none;
+  cursor: pointer;
+`;
 
 const StyledSvg = styled.svg`
   fill: ${(props) => props.theme.main.primary};
