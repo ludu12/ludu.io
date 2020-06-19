@@ -17,6 +17,7 @@ const Cover = styled.img`
 const Title = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 1.5em;
 `;
 
 const Description = styled.small`
@@ -42,7 +43,9 @@ const BookCard: React.FC<BookCardProps> = (props) => {
         <Column>
           <Title>
             <strong>{book.title}</strong>
-            <small>By {book.author}</small>
+            <small>
+              <i>By {book.author}</i>
+            </small>
           </Title>
           <Description>{book.mySummary}</Description>
         </Column>

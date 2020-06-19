@@ -1,34 +1,33 @@
 // Theme.ts
 export interface ThemeInterface {
-  primary: string,
-  primaryVarient: string,
-  secondary: string,
-  secondaryVarient: string,
-  bg: string,
-  bgInverse: string,
-  text: string,
-  textInverse: string,
-  shadow: string,
-  shadowVarient: string
+  primary: string;
+  primaryVarient: string;
+  secondary: string;
+  secondaryVarient: string;
+  bg: string;
+  bgInverse: string;
+  text: string;
+  textInverse: string;
+  shadow: string;
+  shadowVarient: string;
 }
 
 export interface NeutralsInterface {
-  white: string,
-  lightGray1: string,
-  lightGray2: string,
-  lightGray3: string,
-  gray: string,
-  darkGray3: string,
-  darkGray2: string,
-  darkGray1: string,
-  black: string,
+  white: string;
+  lightGray1: string;
+  lightGray2: string;
+  lightGray3: string;
+  gray: string;
+  darkGray3: string;
+  darkGray2: string;
+  darkGray1: string;
+  black: string;
 }
 
 export interface ThemePropInterface {
-  neturals: NeutralsInterface,
-  main: ThemeInterface,
+  neturals: NeutralsInterface;
+  main: ThemeInterface;
 }
-
 
 const primary = {
   lightPrimary1: 'rgba(117,185,190,0.7)',
@@ -74,7 +73,7 @@ export const lightTheme = {
   text: neturals.darkGray1,
   textInverse: neturals.lightGray1,
   shadow: shadow.lightShadow1,
-  shadowVarient: shadow.lightShadow2
+  shadowVarient: shadow.lightShadow2,
 };
 
 export const darkTheme = {
@@ -88,7 +87,7 @@ export const darkTheme = {
   text: neturals.lightGray1,
   textInverse: neturals.darkGray1,
   shadow: shadow.darkShawdow1,
-  shadowVarient: shadow.darkShawdow2
+  shadowVarient: shadow.darkShawdow2,
 };
 
 export const theme = (t: ThemeInterface) => ({

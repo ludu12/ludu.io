@@ -14,4 +14,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } else {
     res.status(400).json({ message: 'Email and Message are required in body' });
   }
-}
+};

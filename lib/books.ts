@@ -1,6 +1,7 @@
 import {
   getMarkdownFilenames,
   readMarkdownFileContent,
+  reverse,
   sortByFinishedOn,
   sortByStartedOn,
 } from './utils';
@@ -29,14 +30,14 @@ function getAllBooks() {
 }
 
 export function getFinishedBooks() {
-  return sortByFinishedOn(
-    getAllBooks().filter((book) => Boolean(book.finishedOn))
+  return reverse(
+    sortByFinishedOn(getAllBooks().filter((book) => Boolean(book.finishedOn)))
   );
 }
 
 export function getLatestAudibleBook() {
-  let audibleBooks = sortByStartedOn(
-    getAllBooks().filter((book) => book.media === 'Audible')
+  const audibleBooks = reverse(
+    sortByStartedOn(getAllBooks().filter((book) => book.media === 'Audible'))
   );
 
   if (audibleBooks) {

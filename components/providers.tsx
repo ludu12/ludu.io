@@ -1,9 +1,9 @@
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme, theme } from '../lib/styles/theme';
-import { ThemeContext } from '../lib/styles/theme-context';
+import { darkTheme, lightTheme, theme } from './styles/theme';
+import { ThemeContext } from './styles/theme-context';
 import useDarkMode from 'use-dark-mode';
 import React from 'react';
-import GlobalStyles from '../lib/styles/global-styles';
+import GlobalStyles from './styles/global-styles';
 
 const dark = theme(darkTheme);
 const light = theme(lightTheme);

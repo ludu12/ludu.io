@@ -21,3 +21,4 @@ export const readMarkdownFileContent = (directory: string, id: string) => {
 export const sortByDate = R.sortBy(R.prop('date'));
 export const sortByStartedOn = R.sortBy(R.prop('startedOn'));
 export const sortByFinishedOn = R.sortBy(R.prop('finishedOn'));
+export const reverse = R.reverse;

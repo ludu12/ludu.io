@@ -1,10 +1,10 @@
 ---
-title: "Luke Dunscombe's Resume"  
+title: "My Resume"  
 image: 'images/profile.jpg'  
 lastUpdated: '2020-06-16'
 ---
 
-# Experience  
+## Experience  
 ### Lean Techniques
 I started working at [Lean Techniques](https://leantechniques.com/) in **September of 2019** and have been working
 there since. 
@@ -28,11 +28,11 @@ My role there was to develop and maintain a C++ API called JTTK (JT Toolkit).
 
 JT is an ISO-standardized 3D modeling file format used in product lifecycle mangement.
 
-# Volunteering
+## Volunteering
 
 - [DSM Hack 2020](https://dsmhack.org/): 48 hour charity hackathon where we developed GatsbyJS Static website for a [daycare](http://wonderyearsacademy.org/).
 
-# Education
+## Education
 I graduated from the University of Iowa 🦅 in May of 2016 and earned a BSE degree in Electical/Computer Engineering.
 
 

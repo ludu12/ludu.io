@@ -5,6 +5,12 @@ import Date from '../components/date';
 import { GetStaticProps } from 'next';
 import { getFinishedBooks } from '../lib/books';
 import { Book } from '../lib/types';
+import {
+  Italic,
+  List,
+  ListItem,
+  ListLink,
+} from '../components/shared/shared-styled';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allBooksData = getFinishedBooks();
@@ -24,19 +30,19 @@ const Books: React.FC<BooksProps> = (props) => {
   return (
     <Layout siteTitle="Books">
       <h1>Books</h1>
-      <ul>
-        {allBooksData.map(({ id, startedOn, title }) => (
-          <li key={id}>
-            <Link href="/books/[id]" as={`/books/${id}`}>
-              <a>{title}</a>
+      <List>
+        {allBooksData.map(({ id, startedOn, title, author }) => (
+          <ListItem key={id}>
+            <Link href="/books/[id]" as={`/books/${id}`} passHref>
+              <ListLink>{title}</ListLink>
             </Link>
             <br />
-            <small>
-              <Date dateString={startedOn} />
-            </small>
-          </li>
+            <Italic>
+              By {author} &middot; Started <Date dateString={startedOn} />
+            </Italic>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </Layout>
   );
 };

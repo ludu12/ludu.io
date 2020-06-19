@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeContext } from '../lib/styles/theme-context';
+import { ThemeContext } from './styles/theme-context';
 import { FiSun } from 'react-icons/fi';
 import { FiMoon } from 'react-icons/fi';
 import { Button } from './shared/shared-styled';
