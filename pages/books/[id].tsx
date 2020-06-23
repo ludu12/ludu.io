@@ -49,7 +49,7 @@ const Id: React.FC<BookProps> = ({ bookData }) => {
           <h3>By {bookData.author}</h3>
         </Title>
         <Italic>
-          Finished on <Date dateString={bookData.finishedOn} /> &middot;{' '}
+          Written on <Date dateString={bookData.startedOn} /> &middot;{' '}
           <BookMedia media={bookData.media} />
         </Italic>
         <p>

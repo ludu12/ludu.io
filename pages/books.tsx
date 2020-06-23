@@ -38,7 +38,7 @@ const Books: React.FC<BooksProps> = (props) => {
             </Link>
             <br />
             <Italic>
-              By {author} &middot; Started <Date dateString={startedOn} />
+              By {author} &middot; Written <Date dateString={startedOn} />
             </Italic>
           </ListItem>
         ))}
