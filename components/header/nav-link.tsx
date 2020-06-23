@@ -6,16 +6,15 @@ import { useRouter } from 'next/router';
 const NavA = styled.a<{ active?: boolean }>`
   transition: all 0.25s;
   color: ${(props) =>
-    props.active ? props.theme.main.primary : props.theme.main.textInverse};
+    props.active ? props.theme.main.secondary : props.theme.main.text};
   font-size: 2em;
-  text-decoration: none;
   &:hover {
     color: ${(props) => props.theme.main.secondary};
   }
 `;
 
 const DynamicPath = styled.i`
-  color: ${(props) => props.theme.main.primary};
+  color: ${(props) => props.theme.main.secondary};
   font-size: 1.5em;
 `;
 
@@ -42,7 +41,7 @@ const NavLink: React.FC<NavLinkProps> = (props) => {
         </NavA>
       </Link>
       {isActive && rest.length > 0 && (
-        <DynamicPath> / {rest.join('>')}</DynamicPath>
+        <DynamicPath> &#x2f; {rest.join('>')}</DynamicPath>
       )}
     </li>
   );

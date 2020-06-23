@@ -1,18 +1,12 @@
 import React from 'react';
-import { Column, Paper, Row } from './shared/shared-styled';
-import { Book } from '../lib/types';
+import { Column, Container, Row } from '../shared-styled';
+import { Book } from '../../lib/types';
 import styled from 'styled-components';
+import BookCover from './book-cover';
 
 interface BookCardProps {
   book: Book;
 }
-
-const Cover = styled.img`
-  height: 7em;
-  width: 7em;
-  align-self: center;
-  margin: 0 1em 0 0;
-`;
 
 const Title = styled.div`
   display: flex;
@@ -37,9 +31,9 @@ const BookCard: React.FC<BookCardProps> = (props) => {
   }
 
   return (
-    <Paper>
+    <Container>
       <Row align="flex-start">
-        <Cover src={book.cover} alt={book.title} />
+        <BookCover cover={book.cover} title={book.title} />
         <Column>
           <Title>
             <strong>{book.title}</strong>
@@ -50,7 +44,7 @@ const BookCard: React.FC<BookCardProps> = (props) => {
           <Description>{book.mySummary}</Description>
         </Column>
       </Row>
-    </Paper>
+    </Container>
   );
 };
 

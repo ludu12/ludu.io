@@ -1,64 +1,37 @@
-import {
-  getMarkdownFilenames,
-  readMarkdownFileContent,
-  reverse,
-  sortByFinishedOn,
-  sortByStartedOn,
-} from './utils';
+import { getMarkdownFilenames, processContent, readMarkdownFileContent, reverse, sortByDate } from './utils';
 import path from 'path';
-import remark from 'remark';
-import html from 'remark-html';
 
-const booksDirectory = path.join(process.cwd(), 'books');
+const booksDirectory = path.join(process.cwd(), 'markdown/books');
 
-function getAllBooks() {
-  return getMarkdownFilenames(booksDirectory).map((id) => {
-    const matterResult = readMarkdownFileContent(booksDirectory, id);
-    return {
-      id,
-      ...(matterResult.data as {
-        title: string;
-        author: string;
-        startedOn: string;
-        finishedOn: string;
-        media: string;
-        mySummary: string;
-        cover: string;
-      }),
-    };
-  });
-}
-
-export function getFinishedBooks() {
-  return reverse(
-    sortByFinishedOn(getAllBooks().filter((book) => Boolean(book.finishedOn)))
+// Get All Book Meta info
+export function getAllBooks() {
+  return reverse(sortByDate(getMarkdownFilenames(booksDirectory).map((id) => {
+      const matterResult = readMarkdownFileContent(booksDirectory, id);
+      return {
+        id,
+        ...(matterResult.data as {
+          title: string;
+          author: string;
+          date: string;
+          media: string;
+          mySummary: string;
+          cover: string;
+          link: string;
+        }),
+      };
+    })),
   );
 }
 
-export function getLatestAudibleBook() {
-  const audibleBooks = reverse(
-    sortByStartedOn(getAllBooks().filter((book) => book.media === 'Audible'))
-  );
-
-  if (audibleBooks) {
-    return audibleBooks[0];
-  }
-
-  return null;
-}
-
-export function getAllBooksIds() {
+// Get Ids
+export function getAllBookIds() {
   return getMarkdownFilenames(booksDirectory).map((id) => ({ params: { id } }));
 }
 
+// Get Data
 export async function getBookData(id: string) {
   const matterResult = readMarkdownFileContent(booksDirectory, id);
-
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = await processContent(matterResult.content);
 
   // Combine the data with the id and contentHtml
   return {
@@ -67,8 +40,7 @@ export async function getBookData(id: string) {
     ...(matterResult.data as {
       title: string;
       author: string;
-      startedOn: string;
-      finishedOn: string;
+      date: string;
       media: string;
       mySummary: string;
       cover: string;

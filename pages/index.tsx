@@ -1,13 +1,13 @@
 import React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import { GetStaticProps } from 'next';
-import { getLatestAudibleBook } from '../lib/books';
 import { Book } from '../lib/types';
 import Link from 'next/link';
-import BookCard from '../components/book-card';
+import BookCard from '../components/book/book-card';
+import { getAudibleBook } from '../lib/audible';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const audibleBook = getLatestAudibleBook();
+  const audibleBook = await getAudibleBook();
   return {
     props: {
       audibleBook,

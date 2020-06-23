@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import BurgerMenuButton from './buger-menu-button';
-import { Row } from './shared/shared-styled';
+import { Row } from '../shared-styled';
 import Brand from './brand';
-import NavMenu from './nav/nav-menu';
+import NavMenu from './nav-menu';
 import DarkModeButton from './dark-mode-button';
 
 interface HeaderProps {}

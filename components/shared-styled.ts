@@ -12,15 +12,13 @@ export const Column = styled.div`
   flex-direction: column;
 `;
 
-export const Paper = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
   padding: 1em;
-  background-color: ${(props) => props.theme.main.bg2};
-  border-radius: 0.1em;
-  box-shadow: 0 0 0.2em ${(props) => props.theme.main.shadow},
-    0 0 0.5em ${(props) => props.theme.main.shadowVarient};
+  border: 0.05em solid ${props => props.theme.main.bg3};
+  border-radius: 0.2em;
 `;
 
 export const Button = styled.button`
@@ -30,17 +28,14 @@ export const Button = styled.button`
   border: 0;
   border-radius: 0.2em;
   transition: all 0.25s;
-
+  cursor: pointer;
+ 
   &:focus {
     outline: none;
   }
 
   &:disabled {
     background-color: ${(props) => props.theme.neturals.gray};
-  }
-
-  &:hover {
-    background-color: ${(props) => props.theme.main.secondary};
   }
 `;
 
@@ -50,18 +45,18 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
+  display: flex;
   margin: 1em 0;
 `;
 
 export const ListLink = styled.a`
   font-size: 1.5em;
-  text-decoration: none;
 `;
 
 export const Thumbnail = styled.img`
-  height: 3em;
-  width: 3em;
-  border-radius: 1.5em;
+  height: 2em;
+  width: 2em;
+  border-radius: 1em;
   margin: 0 1em 0 0;
 `;
 

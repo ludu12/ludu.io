@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import Header from './header';
+import Header from '../header/header';
 import styled from 'styled-components';
 import Footer from './footer';
 

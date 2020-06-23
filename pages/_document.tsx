@@ -38,7 +38,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link rel="shortcut icon" href="/favicon.svg" />
+        </Head>
         <body>
           <script src="noflash.js" />
           <Main />

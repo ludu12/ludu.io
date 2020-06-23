@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from './shared/shared-styled';
+import { Row } from '../shared-styled';
 import { FiGithub, FiLinkedin, FiMail, FiTwitter } from 'react-icons/fi';
 import styled from 'styled-components';
 
@@ -11,6 +11,7 @@ const FooterWrapper = styled.div`
 export const SocialLink = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.main.text};
+  font-size: 1.2em;
 `;
 
 interface FooterProps {}

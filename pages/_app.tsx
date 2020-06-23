@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import React from 'react';
-import Providers from '../components/providers';
+import Providers from '../components/layout/providers';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (

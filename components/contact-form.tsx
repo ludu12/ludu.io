@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Paper, Row } from './shared/shared-styled';
+import { Button, Container, Row } from './shared-styled';
 import styled from 'styled-components';
 
 const Form = styled.form`
@@ -84,7 +84,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
   };
 
   return (
-    <Paper>
+    <Container>
       <Form onSubmit={handleSubmit}>
         <Column>
           <label>Email</label>
@@ -110,7 +110,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
           <Status>{showStatus()}</Status>
         </Row>
       </Form>
-    </Paper>
+    </Container>
   );
 };
 

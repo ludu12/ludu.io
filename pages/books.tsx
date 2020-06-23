@@ -1,19 +1,22 @@
 import React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import Link from 'next/link';
-import Date from '../components/date';
+import DateFormat from '../components/common/dateFormat';
 import { GetStaticProps } from 'next';
-import { getFinishedBooks } from '../lib/books';
 import { Book } from '../lib/types';
 import {
+  Column,
+  Container,
   Italic,
   List,
   ListItem,
-  ListLink,
-} from '../components/shared/shared-styled';
+  ListLink, Row,
+} from '../components/shared-styled';
+import { getAllBooks } from '../lib/books';
+import BookCover from '../components/book/book-cover';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allBooksData = getFinishedBooks();
+  const allBooksData = getAllBooks();
   return {
     props: {
       allBooksData,
@@ -31,15 +34,22 @@ const Books: React.FC<BooksProps> = (props) => {
     <Layout siteTitle="Books">
       <h1>Books</h1>
       <List>
-        {allBooksData.map(({ id, startedOn, title, author }) => (
+        {allBooksData.map(({ id, cover, date, title, author }) => (
           <ListItem key={id}>
-            <Link href="/books/[id]" as={`/books/${id}`} passHref>
-              <ListLink>{title}</ListLink>
-            </Link>
-            <br />
-            <Italic>
-              By {author} &middot; Written <Date dateString={startedOn} />
-            </Italic>
+              <Row align="flex-start">
+                <BookCover cover={cover} title={title}/>
+                <Column>
+                  <Link href="books/[id]" as={`/books/${id}`} passHref>
+                    <ListLink>{title}</ListLink>
+                  </Link>
+                  <Italic>
+                    By {author}
+                  </Italic>
+                  <Italic>
+                    <DateFormat dateString={date} />
+                  </Italic>
+                </Column>
+              </Row>
           </ListItem>
         ))}
       </List>

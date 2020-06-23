@@ -5,6 +5,8 @@ export interface ThemeInterface {
   secondary: string;
   secondaryVarient: string;
   bg: string;
+  bg2: string;
+  bg3: string;
   bgInverse: string;
   text: string;
   textInverse: string;
@@ -68,7 +70,8 @@ export const lightTheme = {
   secondary: secondary.lightSecondary1,
   secondaryVarient: secondary.lightSecondary2,
   bg: neturals.lightGray1,
-  bg2: neturals.white,
+  bg2: neturals.lightGray2,
+  bg3: neturals.lightGray3,
   bgInverse: neturals.darkGray1,
   text: neturals.darkGray1,
   textInverse: neturals.lightGray1,
@@ -83,6 +86,7 @@ export const darkTheme = {
   secondaryVarient: secondary.darkSecondary2,
   bg: neturals.darkGray1,
   bg2: neturals.darkGray2,
+  bg3: neturals.darkGray3,
   bgInverse: neturals.lightGray1,
   text: neturals.lightGray1,
   textInverse: neturals.darkGray1,

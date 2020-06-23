@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { hashStringToRBG } from './helpers';
+import { hashStringToRBG } from '../helpers';
 
 interface BookMediaProps {
   media: string;

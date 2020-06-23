@@ -12,7 +12,7 @@ const NavModal = styled.div<{ hidden?: boolean }>`
   transition: all 0.25s;
   opacity: ${(props) => (props.hidden ? '0' : '1')};
   visibility: ${(props) => (props.hidden ? 'hidden' : 'visibile')};
-  background: ${(props) => props.theme.main.bgInverse};
+  background: ${(props) => props.theme.main.bg2};
 `;
 
 const Nav = styled.nav`
@@ -39,14 +39,7 @@ const NavMenu: React.FC<NavMenuProps> = (props) => {
         <NavList>
           <NavLink text="Home" href="/" />
           <NavLink text="Books" href="/books" />
-          {/*<NavLink text='Posts' href='/posts'/>*/}
-          {/*<NavLink text='Contact Me' href='/contact'/>*/}
           <NavLink text="Resume" href="/resume" />
-          {/*<NavLink text='Home' href='/' emoji={`🏠`}/>*/}
-          {/*<NavLink text='Posts' href='/posts' emoji={`✍🏼`}/>*/}
-          {/*<NavLink text='Books' href='/books' emoji={`📚`}/>*/}
-          {/*<NavLink text='Contact Me' href='/contact' emoji={'💌️'}/>*/}
-          {/*<NavLink text='Resume' href='/resume' emoji={'📜'}/>*/}
         </NavList>
       </Nav>
     </NavModal>

@@ -12,19 +12,17 @@ const GlobalStyles = createGlobalStyle`
     transition: all 0.3s linear;
     margin-block-start: 0.5rem;
     margin-block-end: 0.5rem;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
+    font-size: 16px;
   }
   
   a {
+    text-decoration: none;
     color: ${(props: { theme: ThemePropInterface }) =>
       props.theme.main.primary};
+      
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   button {

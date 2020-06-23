@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { ThemePropInterface } from './styles/theme';
+import { ThemePropInterface } from '../styles/theme';
 
 const StyledLink = styled.a`
   transition: all 0.25s;
@@ -10,17 +10,13 @@ const StyledLink = styled.a`
   cursor: pointer;
   font-size: 1.5rem;
   &:hover {
-    color: ${(props: { theme: ThemePropInterface }) =>
-      props.theme.main.secondary};
+    text-decoration: none;
   }
 `;
 
 const StyledSvg = styled.svg`
   transition: all 0.25s;
   fill: ${(props) => props.theme.main.primary};
-  ${StyledLink}:hover & {
-    fill: ${(props) => props.theme.main.secondary};
-  }
 `;
 
 interface BrandProps {}
