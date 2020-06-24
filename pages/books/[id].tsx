@@ -30,9 +30,6 @@ interface BookProps {
 }
 
 const Title = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-size: 1.5em;
   h1 {
     margin-block-end: 0;
   }
@@ -58,7 +55,9 @@ const Id: React.FC<BookProps> = ({ bookData }) => {
         {bookData.mySummary}
         <br/>
       </p>
-      <div dangerouslySetInnerHTML={{ __html: bookData.contentHtml }}/>
+      <main>
+        <div dangerouslySetInnerHTML={{ __html: bookData.contentHtml }}/>
+      </main>
     </Layout>
   );
 };

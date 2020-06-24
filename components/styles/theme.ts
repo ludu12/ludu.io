@@ -32,17 +32,19 @@ export interface ThemePropInterface {
 }
 
 const primary = {
-  lightPrimary1: 'rgba(117,185,190,0.7)',
-  lightPrimary2: 'rgba(117,185,190,0.8)',
-  darkPrimary2: 'rgba(117,185,190,0.9)',
-  darkPrimary1: 'rgba(117,185,190,1)',
+  lightPrimary1: 'rgba(218, 242, 244,1)',
+  lightPrimary2: 'rgba(168, 217, 221,1)',
+  primary: 'rgba(117,185,190,1)',
+  darkPrimary2: 'rgba(73, 146, 153,1)',
+  darkPrimary1: 'rgba(45, 123, 130, 1)',
 };
 
 const secondary = {
-  lightSecondary1: 'rgba(247,146,86,0.7)',
-  lightSecondary2: 'rgba(247,146,86,0.8)',
-  darkSecondary2: 'rgba(247,146,86,0.9)',
-  darkSecondary1: 'rgba(247,146,86,1)',
+  lightSecondary1: 'rgba(255, 240, 227, 1)',
+  lightSecondary2: 'rgb(255, 222, 192, 1)',
+  secondary: 'rgba(255, 203, 156, 1)',
+  darkSecondary2: 'rgb(252, 181, 119, 1)',
+  darkSecondary1: 'rgba(214, 139, 73, 1)',
 };
 
 const shadow = {
@@ -65,10 +67,10 @@ const neturals = {
 };
 
 export const lightTheme = {
-  primary: primary.lightPrimary1,
-  primaryVarient: primary.lightPrimary2,
-  secondary: secondary.lightSecondary1,
-  secondaryVarient: secondary.lightSecondary2,
+  primary: primary.primary,
+  primaryVarient: primary.darkPrimary2,
+  secondary: secondary.secondary,
+  secondaryVarient: secondary.darkSecondary2,
   bg: neturals.lightGray1,
   bg2: neturals.lightGray2,
   bg3: neturals.lightGray3,
@@ -80,10 +82,10 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  primary: primary.darkPrimary1,
+  primary: primary.primary,
   primaryVarient: primary.darkPrimary2,
-  secondary: secondary.darkSecondary1,
-  secondaryVarient: secondary.darkSecondary2,
+  secondary: secondary.secondary,
+  secondaryVarient: secondary.lightSecondary2,
   bg: neturals.darkGray1,
   bg2: neturals.darkGray2,
   bg3: neturals.darkGray3,

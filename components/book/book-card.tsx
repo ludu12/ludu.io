@@ -11,7 +11,6 @@ interface BookCardProps {
 const Title = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 1.5em;
 `;
 
 const Description = styled.small`

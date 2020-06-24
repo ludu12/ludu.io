@@ -25,8 +25,8 @@ const Brand: React.FC<BrandProps> = () => {
   return (
     <Link href="/">
       <StyledLink>
-        <StyledSvg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="0,0 0,200 200,200 0,0" />
+        <StyledSvg height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,0 0,100 100,100 0,0" />
         </StyledSvg>{' '}
         ludu.io
       </StyledLink>

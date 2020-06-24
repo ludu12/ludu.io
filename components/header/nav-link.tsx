@@ -6,15 +6,15 @@ import { useRouter } from 'next/router';
 const NavA = styled.a<{ active?: boolean }>`
   transition: all 0.25s;
   color: ${(props) =>
-    props.active ? props.theme.main.secondary : props.theme.main.text};
+    props.active ? props.theme.main.primaryVarient : props.theme.main.text};
   font-size: 2em;
   &:hover {
-    color: ${(props) => props.theme.main.secondary};
+    color: ${(props) => props.theme.main.primary};
   }
 `;
 
 const DynamicPath = styled.i`
-  color: ${(props) => props.theme.main.secondary};
+  color: ${(props) => props.theme.main.primary};
   font-size: 1.5em;
 `;
 

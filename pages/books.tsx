@@ -6,7 +6,6 @@ import { GetStaticProps } from 'next';
 import { Book } from '../lib/types';
 import {
   Column,
-  Container,
   Italic,
   List,
   ListItem,
@@ -33,9 +32,10 @@ const Books: React.FC<BooksProps> = (props) => {
   return (
     <Layout siteTitle="Books">
       <h1>Books</h1>
-      <List>
-        {allBooksData.map(({ id, cover, date, title, author }) => (
-          <ListItem key={id}>
+      <main>
+        <List>
+          {allBooksData.map(({ id, cover, date, title, author }) => (
+            <ListItem key={id}>
               <Row align="flex-start">
                 <BookCover cover={cover} title={title}/>
                 <Column>
@@ -50,9 +50,10 @@ const Books: React.FC<BooksProps> = (props) => {
                   </Italic>
                 </Column>
               </Row>
-          </ListItem>
-        ))}
-      </List>
+            </ListItem>
+          ))}
+        </List>
+      </main>
     </Layout>
   );
 };

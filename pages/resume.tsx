@@ -29,13 +29,15 @@ const Resume: React.FC<ResumeProps> = (props) => {
   return (
     <Layout siteTitle="Resume">
       <h1>{resume.title}</h1>
-      <Row justify="flex-start">
-        <Thumbnail src={resume.image} alt={resume.image} />
-        <Italic>
-          Last Updated <DateFormat dateString={resume.lastUpdated} />
-        </Italic>
-      </Row>
-      <div dangerouslySetInnerHTML={{ __html: resume.contentHtml }} />
+      <main>
+        <Row justify="flex-start">
+          <Thumbnail src={resume.image} alt={resume.image} />
+          <Italic>
+            Last Updated <DateFormat dateString={resume.lastUpdated} />
+          </Italic>
+        </Row>
+        <div dangerouslySetInnerHTML={{ __html: resume.contentHtml }} />
+      </main>
     </Layout>
   );
 };
