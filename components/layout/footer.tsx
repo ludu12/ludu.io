@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row } from '../shared-styled';
-import { FiGithub, FiLinkedin, FiMail, FiTwitter } from 'react-icons/fi';
+import { FaGithub, FaLinkedin, FaRegEnvelope, FaTwitter } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const FooterWrapper = styled.div`
@@ -19,16 +19,16 @@ const Footer: React.FC = () => {
     <FooterWrapper>
       <Row justify="space-around">
         <SocialLink href="https://twitter.com/LukeDunscombe">
-          <FiTwitter />
+          <FaTwitter />
         </SocialLink>
         <SocialLink href="https://github.com/ludu12">
-          <FiGithub />
+          <FaGithub />
         </SocialLink>
         <SocialLink href="https://www.linkedin.com/in/luke-dunscombe-b9712a8b">
-          <FiLinkedin />
+          <FaLinkedin />
         </SocialLink>
         <SocialLink href="mailto:luke@ludu.io">
-          <FiMail />
+          <FaRegEnvelope />
         </SocialLink>
       </Row>
     </FooterWrapper>

@@ -18,3 +18,12 @@ export interface Post {
   image: string;
   contentHtml: string;
 }
+
+export interface SpotifySong {
+  isPlaying: boolean;
+  album?: string;
+  title?: string;
+  artist?: string;
+  albumCoverUrl?: string;
+  url?: string;
+}

@@ -13,7 +13,7 @@ import {
   Row,
 } from '../components/shared-styled';
 import { getAllBooks } from '../lib/books';
-import BookCover from '../components/book/book-cover';
+import CoverArt from '../components/common/cover-art';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allBooksData = getAllBooks();
@@ -38,7 +38,7 @@ const Books: React.FC<BooksProps> = (props) => {
           {allBooksData.map(({ id, cover, date, title, author }) => (
             <ListItem key={id}>
               <Row align="flex-start">
-                <BookCover cover={cover} title={title} />
+                <CoverArt cover={cover} title={title} />
                 <Column>
                   <Link href="books/[id]" as={`/books/${id}`} passHref>
                     <ListLink>{title}</ListLink>

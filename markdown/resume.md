@@ -1,6 +1,6 @@
 ---
 title: "My Resume"  
-image: 'images/profile.jpg'  
+image: 'static/images/profile.jpg'  
 lastUpdated: '2020-06-16'
 ---
 

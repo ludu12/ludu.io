@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface BookCoverProps {
-  cover: string;
+interface CoverArtProps {
   title: string;
+  cover: string;
 }
 
 const Cover = styled.img`
-  height: 6em;
-  width: 6em;
-  align-self: center;
+  height: 5rem;
+  width: 5rem;
   margin: 0 1em 0 0;
 `;
 
-const BookCover: React.FC<BookCoverProps> = (props) => {
+const CoverArt: React.FC<CoverArtProps> = (props) => {
   return <Cover src={props.cover} alt={props.title} />;
 };
 
-export default BookCover;
+export default CoverArt;

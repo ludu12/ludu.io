@@ -4,18 +4,28 @@ export const Row = styled.div<{
   justify?: string;
   align?: string;
   grow?: boolean;
+  wrap?: boolean;
 }>`
   justify-content: ${(props) => props.justify || 'space-between'};
   display: flex;
   flex-direction: row;
   ${(props) => props.grow && 'flex-grow: 1;'}
+  ${(props) => props.wrap && 'flex-wrap: wrap;'}
   align-items: ${(props) => props.align || 'center'};
 `;
 
-export const Column = styled.div<{ grow?: boolean }>`
+export const Column = styled.div<{
+  grow?: boolean;
+  maxWidth?: string;
+  align?: string;
+  justify?: string;
+}>`
   display: flex;
   flex-direction: column;
   ${(props) => props.grow && 'flex-grow: 1;'}
+  ${(props) => props.maxWidth && `max-width: ${props.maxWidth};`}
+  align-items: ${(props) => props.align || 'unset'};
+  justify-content: ${(props) => props.justify || 'unset'};
 `;
 
 export const Container = styled.div`
@@ -25,6 +35,21 @@ export const Container = styled.div`
   padding: 1em;
   border: 0.05em solid ${(props) => props.theme.main.bg3};
   border-radius: 0.2em;
+`;
+
+export const Item = styled.div`
+  flex: 1;
+`;
+
+export const Paper = styled.div`
+  display: flex;
+  overflow: hidden;
+  padding: 1em;
+  margin: 0.25em;
+  border: 0.05em solid ${(props) => props.theme.main.bg3};
+  border-radius: 0.2em;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 `;
 
 export const Button = styled.button`
@@ -68,6 +93,11 @@ export const Thumbnail = styled.img`
 
 export const Italic = styled.i`
   color: ${(props) => props.theme.neturals.gray};
+`;
+
+export const Strong = styled.h3`
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
 `;
 
 export const LargeMedia = styled.div`
