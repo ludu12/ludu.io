@@ -26,9 +26,9 @@ const Home: React.FC<HomeProps> = (props) => {
       <main>
         <div>
           <p>
-            I'm a software consultant from Des Moines. This is my personal website
-            where I post about things I've done, thoughts I've had, and books I've
-            read.
+            I'm a software consultant from Des Moines. This is my personal
+            website where I post about things I've done, thoughts I've had, and
+            books I've read.
           </p>
           <p>
             My online resume can also be found{' '}
@@ -46,7 +46,8 @@ const Home: React.FC<HomeProps> = (props) => {
         <div>
           <h1>Audible</h1>
           <p>
-            I listen to Audible a lot... This is what I'm currently listening to:
+            I listen to Audible a lot... This is what I'm currently listening
+            to:
           </p>
           <BookCard book={props.audibleBook} />
         </div>

@@ -1,10 +1,10 @@
 import { processContent, readMarkdownFileContent } from './utils';
 import path from 'path';
 
-export async function getAudibleBook() {
+export async function getUses() {
   const matterResult = readMarkdownFileContent(
     path.join(process.cwd(), 'markdown'),
-    'audible'
+    'uses'
   );
   const contentHtml = await processContent(matterResult.content);
 
@@ -12,12 +12,8 @@ export async function getAudibleBook() {
     contentHtml,
     ...(matterResult.data as {
       title: string;
-      author: string;
-      date: string;
-      media: string;
-      mySummary: string;
-      cover: string;
-      link: string;
+      description: string;
+      lastUpdated: string;
     }),
   };
 }

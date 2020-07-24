@@ -71,7 +71,7 @@ export const lightTheme = {
   primaryVarient: primary.darkPrimary2,
   secondary: secondary.secondary,
   secondaryVarient: secondary.darkSecondary2,
-  bg: neturals.lightGray1,
+  bg: neturals.white,
   bg2: neturals.lightGray2,
   bg3: neturals.lightGray3,
   bgInverse: neturals.darkGray1,
@@ -99,4 +99,11 @@ export const darkTheme = {
 export const theme = (t: ThemeInterface) => ({
   neturals,
   main: t,
+  screen: {
+    xs: '0px',
+    sm: '600px',
+    md: '960px',
+    lg: '1280px',
+    xl: '1920px',
+  },
 });

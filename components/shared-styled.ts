@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
-export const Row = styled.div<{ justify?: string; align?: string }>`
+export const Row = styled.div<{
+  justify?: string;
+  align?: string;
+  grow?: boolean;
+}>`
   justify-content: ${(props) => props.justify || 'space-between'};
   display: flex;
   flex-direction: row;
+  ${(props) => props.grow && 'flex-grow: 1;'}
   align-items: ${(props) => props.align || 'center'};
 `;
 
-export const Column = styled.div`
+export const Column = styled.div<{ grow?: boolean }>`
   display: flex;
   flex-direction: column;
+  ${(props) => props.grow && 'flex-grow: 1;'}
 `;
 
 export const Container = styled.div`
@@ -17,7 +23,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   overflow: hidden;
   padding: 1em;
-  border: 0.05em solid ${props => props.theme.main.bg3};
+  border: 0.05em solid ${(props) => props.theme.main.bg3};
   border-radius: 0.2em;
 `;
 
@@ -29,7 +35,7 @@ export const Button = styled.button`
   border-radius: 0.2em;
   transition: all 0.25s;
   cursor: pointer;
- 
+
   &:focus {
     outline: none;
   }
@@ -62,4 +68,12 @@ export const Thumbnail = styled.img`
 
 export const Italic = styled.i`
   color: ${(props) => props.theme.neturals.gray};
+`;
+
+export const LargeMedia = styled.div`
+  display: none;
+
+  @media (min-width: ${(props) => props.theme.screen.md}) {
+    display: block;
+  }
 `;

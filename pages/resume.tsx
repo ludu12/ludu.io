@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import { GetStaticProps } from 'next';
 import { getResume } from '../lib/resume';
-import DateFormat from '../components/common/dateFormat';
+import DateFormat from '../components/common/date-format';
 import { Italic, Row, Thumbnail } from '../components/shared-styled';
 
 export const getStaticProps: GetStaticProps = async () => {

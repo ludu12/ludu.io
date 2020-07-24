@@ -2,9 +2,7 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import ContactForm from '../components/contact-form';
 
-interface ContactProps {}
-
-const Contact: React.FC<ContactProps> = (props) => {
+const Contact: React.FC = () => {
   return (
     <Layout siteTitle="Contact">
       <h1>Contact Me</h1>

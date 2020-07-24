@@ -7,5 +7,14 @@ export interface Book {
   mySummary: string;
   cover: string;
   contentHtml: string;
-  link: string
+  link: string;
+}
+
+export interface Post {
+  id: string;
+  title: string;
+  date: string;
+  summary: string;
+  image: string;
+  contentHtml: string;
 }

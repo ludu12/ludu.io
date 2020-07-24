@@ -42,9 +42,7 @@ const Status = styled.span`
   margin: 0 1em;
 `;
 
-interface ContactFormProps {}
-
-const ContactForm: React.FC<ContactFormProps> = () => {
+const ContactForm: React.FC = () => {
   const [form, setForm] = useState<{ email: string; message: string }>({
     email: '',
     message: '',

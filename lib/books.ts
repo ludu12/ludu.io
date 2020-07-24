@@ -1,25 +1,34 @@
-import { getMarkdownFilenames, processContent, readMarkdownFileContent, reverse, sortByDate } from './utils';
+import {
+  getMarkdownFilenames,
+  processContent,
+  readMarkdownFileContent,
+  reverse,
+  sortByDate,
+} from './utils';
 import path from 'path';
 
 const booksDirectory = path.join(process.cwd(), 'markdown/books');
 
 // Get All Book Meta info
 export function getAllBooks() {
-  return reverse(sortByDate(getMarkdownFilenames(booksDirectory).map((id) => {
-      const matterResult = readMarkdownFileContent(booksDirectory, id);
-      return {
-        id,
-        ...(matterResult.data as {
-          title: string;
-          author: string;
-          date: string;
-          media: string;
-          mySummary: string;
-          cover: string;
-          link: string;
-        }),
-      };
-    })),
+  return reverse(
+    sortByDate(
+      getMarkdownFilenames(booksDirectory).map((id) => {
+        const matterResult = readMarkdownFileContent(booksDirectory, id);
+        return {
+          id,
+          ...(matterResult.data as {
+            title: string;
+            author: string;
+            date: string;
+            media: string;
+            mySummary: string;
+            cover: string;
+            link: string;
+          }),
+        };
+      })
+    )
   );
 }
 

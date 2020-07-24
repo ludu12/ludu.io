@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Book } from '../../lib/types';
 
 interface BookCoverProps {
-    cover: string;
-    title: string;
+  cover: string;
+  title: string;
 }
 
 const Cover = styled.img`
@@ -15,7 +14,7 @@ const Cover = styled.img`
 `;
 
 const BookCover: React.FC<BookCoverProps> = (props) => {
-    return (<Cover src={props.cover} alt={props.title}/>);
+  return <Cover src={props.cover} alt={props.title} />;
 };
 
 export default BookCover;

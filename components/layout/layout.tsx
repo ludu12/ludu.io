@@ -22,9 +22,9 @@ const Layout: React.FC<LayoutProps> = (props) => {
       <Head>
         <title>{siteTitle} - ludu.io</title>
       </Head>
-      <Header/>
+      <Header />
       {children}
-      <Footer/>
+      <Footer />
     </Container>
   );
 };

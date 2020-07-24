@@ -10,7 +10,9 @@ export const getMarkdownFilename = (filename: string) =>
 
 export const getMarkdownFilenames = (directory: string) => {
   const fileNames = fs.readdirSync(directory);
-  return fileNames.filter(f => !f.includes('_template')).map(getMarkdownFilename)
+  return fileNames
+    .filter((f) => !f.includes('_template'))
+    .map(getMarkdownFilename);
 };
 
 // Use gray matter to read markdown meta info
@@ -23,12 +25,9 @@ export const readMarkdownFileContent = (directory: string, id: string) => {
 
 // Use remark to convert markdown into HTML string
 export const processContent = async (content: string) => {
-  const processedContent = await remark()
-    .use(html)
-    .process(content);
+  const processedContent = await remark().use(html).process(content);
   return processedContent.toString();
 };
-
 
 export const sortByDate = R.sortBy(R.prop('date'));
 export const reverse = R.reverse;

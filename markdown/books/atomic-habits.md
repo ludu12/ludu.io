@@ -4,7 +4,7 @@ author: 'James Clear'
 date: '2020-05-28' 
 media: 'Audible'  
 mySummary: 'This is a book about habits. More specifically, mastering/developing a system of creating habits.'  
-cover: 'images/book-covers/atomic-habits.jpg'  
+cover: 'static/images/book/atomic-habits.jpg'  
 link: 'https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299'  
 ---
 

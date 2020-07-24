@@ -14,9 +14,7 @@ export const SocialLink = styled.a`
   font-size: 1.2em;
 `;
 
-interface FooterProps {}
-
-const Footer: React.FC<FooterProps> = () => {
+const Footer: React.FC = () => {
   return (
     <FooterWrapper>
       <Row justify="space-around">
@@ -29,7 +27,7 @@ const Footer: React.FC<FooterProps> = () => {
         <SocialLink href="https://www.linkedin.com/in/luke-dunscombe-b9712a8b">
           <FiLinkedin />
         </SocialLink>
-        <SocialLink href="mailto:ludu@ludu.io">
+        <SocialLink href="mailto:luke@ludu.io">
           <FiMail />
         </SocialLink>
       </Row>

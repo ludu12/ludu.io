@@ -4,7 +4,7 @@ author: 'Harper Lee'
 date: '2020-06-12'  
 media: 'Audible'  
 mySummary: 'This is novel about growing up in the deep south during a time of stark racial inequality. This book is both serious, humorous, and above all classic.'
-cover: 'images/book-covers/to-kill-a-mockingbird.jpg'  
+cover: 'static/images/book/to-kill-a-mockingbird.jpg'  
 link: 'https://www.amazon.com/Kill-Mockingbird-Harper-Lee/dp/0446310786'  
 ---
 

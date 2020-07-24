@@ -2,11 +2,9 @@ import React from 'react';
 import { FiSun } from 'react-icons/fi';
 import { FiMoon } from 'react-icons/fi';
 import { Button } from '../shared-styled';
-import { ThemeContext } from '../styles/theme-context';
+import { ThemeContext } from '../../styles/theme-context';
 
-interface DarkModeProps {}
-
-const DarkModeButton: React.FC<DarkModeProps> = () => {
+const DarkModeButton: React.FC = () => {
   const themeContext = React.useContext(ThemeContext);
 
   return (

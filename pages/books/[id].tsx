@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../components/layout/layout';
-import DateFormat from '../../components/common/dateFormat';
+import DateFormat from '../../components/common/date-format';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { getAllBookIds, getBookData } from '../../lib/books';
 import { Book } from '../../lib/types';
@@ -43,20 +43,21 @@ const Id: React.FC<BookProps> = ({ bookData }) => {
     <Layout siteTitle={bookData.title}>
       <Title>
         <h1>{bookData.title}</h1>
-        <h3>By {bookData.author} <a href={bookData.link}>&#x2192;</a></h3>
+        <h3>
+          By {bookData.author} <a href={bookData.link}>&#x2192;</a>
+        </h3>
       </Title>
       <Italic>
-        <BookMedia media={bookData.media}/>
-        {' '} &#x2f; {' '}
-        <DateFormat dateString={bookData.date} long/>
+        <BookMedia media={bookData.media} /> &#x2f;{' '}
+        <DateFormat dateString={bookData.date} long />
       </Italic>
       <p>
         <strong>My Summary: </strong>
         {bookData.mySummary}
-        <br/>
+        <br />
       </p>
       <main>
-        <div dangerouslySetInnerHTML={{ __html: bookData.contentHtml }}/>
+        <div dangerouslySetInnerHTML={{ __html: bookData.contentHtml }} />
       </main>
     </Layout>
   );

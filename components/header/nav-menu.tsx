@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavLink from './nav-link';
-import { Container } from 'next/app';
 
 const NavModal = styled.div<{ hidden?: boolean }>`
   display: flex;
@@ -19,7 +18,7 @@ const NavModal = styled.div<{ hidden?: boolean }>`
 const StyledDiv = styled.div`
   display: flex;
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   padding: 5em 0 0 0;
   max-width: 48em;
   margin: 0 auto 0;
@@ -39,9 +38,10 @@ const NavMenu: React.FC<NavMenuProps> = (props) => {
     <NavModal hidden={props.hidden}>
       <StyledDiv>
         <NavList>
-          <NavLink text="Home" href="/"/>
-          <NavLink text="Books" href="/books"/>
-          <NavLink text="Resume" href="/resume"/>
+          <NavLink text="Home" href="/" />
+          <NavLink text="Books" href="/books" />
+          <NavLink text="Posts" href="/posts" />
+          <NavLink text="Uses" href="/uses" />
         </NavList>
       </StyledDiv>
     </NavModal>
