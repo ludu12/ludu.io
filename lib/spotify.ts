@@ -28,16 +28,16 @@
 //   clientSecret: '6674636c508841b091621e6be313e856',
 // });
 
-// export const getCurrentlyPlaying = async () => {
-//   // const { access_token } = await getAccessToken();
+export const getCurrentlyPlaying = async () => {
+  // const { access_token } = await getAccessToken();
 
-//   // const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', {
-//   //     headers: {
-//   //         Authorization: `Bearer ${access_token}`
-//   //     }
-//   // });
+  // const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', {
+  //     headers: {
+  //         Authorization: `Bearer ${access_token}`
+  //     }
+  // });
 
-//   const song = await spotifyApi.getMyCurrentPlaybackState();
+  //   const song = await spotifyApi.getMyCurrentPlaybackState();
 
-//   return song;
-// };
+  return { song: 'Coming soon...' };
+};
