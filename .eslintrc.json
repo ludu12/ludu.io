@@ -3,18 +3,20 @@
 		"node": 1,
 		"browser": 1,
 		"es6": true,
-		"commonjs": true
+		"commonjs": true,
+		"jest/globals": true
 	},
 	"plugins": [
 		"react",
-		"prettier"
+		"prettier",
+		"jest"
 	],
 	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint"
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier/@typescript-eslint"
 	],
 	"settings": {
 		"react": {
@@ -28,7 +30,7 @@
 			}
 		}
 	},
-  "parser": "@typescript-eslint/parser",
+	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaVersion": 6,
 		"sourceType": "module",
@@ -47,13 +49,13 @@
 		"jsx-a11y/anchor-is-valid": 0,
 		"no-underscore-dangle": 0,
 		"react/no-find-dom-node": 0,
-    "react/prop-types": 0, 
+		"react/prop-types": 0,
 		"no-nested-ternary": 0,
-    "react/no-unescaped-entities": 0,
-    "@typescript-eslint/explicit-function-return-type": 0
+		"react/no-unescaped-entities": 0,
+		"@typescript-eslint/explicit-function-return-type": 0,
+		"@typescript-eslint/camelcase": 0 
 	},
 	"globals": {
 		"grecaptcha": "readonly"
 	}
 }
-    

@@ -1,4 +1,13 @@
 export interface Book {
+  name: string;
+  url: string;
+  added?: string;
+  topic: string;
+  media: string;
+  cover: string;
+}
+
+export interface AudibleBook {
   id: string;
   title: string;
   author: string;

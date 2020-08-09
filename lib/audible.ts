@@ -1,6 +1,6 @@
 import { processContent, readMarkdownFileContent, bookCover } from './utils';
 import path from 'path';
-import { Book } from './types';
+import { AudibleBook } from './types';
 
 export async function getAudibleBook() {
   const matterResult = readMarkdownFileContent(
@@ -8,10 +8,10 @@ export async function getAudibleBook() {
     'audible'
   );
   const contentHtml = await processContent(matterResult.content);
-  const bookMeta = matterResult.data as Book;
+  const bookMeta = matterResult.data as AudibleBook;
   bookMeta.cover = bookCover(bookMeta.link);
   return {
     contentHtml,
-    ...bookMeta
+    ...bookMeta,
   };
 }

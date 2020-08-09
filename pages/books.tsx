@@ -1,53 +1,52 @@
 import React from 'react';
 import Layout from '../components/layout/layout';
-import Link from 'next/link';
-import DateFormat from '../components/common/date-format';
 import { GetStaticProps } from 'next';
 import { Book } from '../lib/types';
-import {
-  Column,
-  Italic,
-  List,
-  ListItem,
-  ListLink,
-  Row,
-} from '../components/shared-styled';
-import { getAllBooks } from '../lib/books';
+import { List, ListItem, Row } from '../components/shared-styled';
 import CoverArt from '../components/common/cover-art';
+import { getNotionBooks } from '../lib/books';
+import Tag from '../components/common/tag';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allBooksData = getAllBooks();
+  const books = await getNotionBooks();
   return {
     props: {
-      allBooksData,
+      books,
     },
+    revalidate: 1,
   };
 };
 
-interface BooksProps {
-  allBooksData: Book[];
-}
-
-const Books: React.FC<BooksProps> = (props) => {
-  const { allBooksData } = props;
+const Books: React.FC<{ books: Book[] }> = (props) => {
+  const { books } = props;
   return (
     <Layout siteTitle="Books">
       <h1>Books</h1>
+      <p>
+        This is a list of books I have enjoyed. They're tagged by topic and by
+        the media in which I consumed it.
+      </p>
       <main>
         <List>
-          {allBooksData.map(({ id, cover, date, title, author }) => (
-            <ListItem key={id}>
+          {books.map((book) => (
+            <ListItem key={book.name}>
               <Row align="flex-start">
-                <CoverArt cover={cover} title={title} />
-                <Column>
-                  <Link href="books/[id]" as={`/books/${id}`} passHref>
-                    <ListLink>{title}</ListLink>
-                  </Link>
-                  <Italic>By {author}</Italic>
-                  <Italic>
-                    <DateFormat dateString={date} />
-                  </Italic>
-                </Column>
+                <CoverArt cover={book.cover} title={book.name} height={7} />
+                <div>
+                  <a href={book.url}>{book.name}</a>
+                  <p>
+                    Topic:{' '}
+                    {book.topic.split(',').map((t) => {
+                      return <Tag key={t} tag={t} />;
+                    })}
+                  </p>
+                  <p>
+                    Media:{' '}
+                    {book.media.split(',').map((m) => {
+                      return <Tag key={m} tag={m} />;
+                    })}
+                  </p>
+                </div>
               </Row>
             </ListItem>
           ))}

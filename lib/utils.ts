@@ -5,9 +5,6 @@ import matter from 'gray-matter';
 import remark from 'remark';
 import html from 'remark-html';
 
-// https://images-na.ssl-images-amazon.com/images/P/B001G8MA4O._LZZZZZZZ_.jpg
-
-
 export const getMarkdownFilename = (filename: string) =>
   filename.replace(/\.md$/, '');
 
@@ -35,9 +32,9 @@ export const processContent = async (content: string) => {
 export function bookCover(link: string): string {
   const asin = link.match(/dp\/(.*)\/?$/);
   if (asin) {
-    return `https://images-na.ssl-images-amazon.com/images/P/${asin[1]}._LZZZZZZZ_.jpg`
+    return `https://images-na.ssl-images-amazon.com/images/P/${asin[1]}._LZZZZZZZ_.jpg`;
   }
-  return 'static/images/book/placeholder.jpg'
+  return 'static/images/book/placeholder.jpg';
 }
 
 export const sortByDate = R.sortBy(R.prop('date'));

@@ -17,12 +17,18 @@ async function recentlyPlayed(): Promise<SpotifySong[]> {
 
 const SpotifyCard: React.FC = () => {
   const { data: now } = useQuery(['spotify', 'now-playing'], nowPlaying);
-  const { data: recent } = useQuery(['spotify', 'recently-played'], recentlyPlayed);
+  const { data: recent } = useQuery(
+    ['spotify', 'recently-played'],
+    recentlyPlayed
+  );
   const song = now || recent?.[0];
 
   return (
     <Item>
-      <Card title={song?.isPlaying ? 'Now Playing' : 'Recently Played'} icon={<FaSpotify />}>
+      <Card
+        title={song?.isPlaying ? 'Now Playing' : 'Recently Played'}
+        icon={<FaSpotify />}
+      >
         <Row align="flex-start" justify="flex-start">
           <CoverArt cover={song?.albumCoverUrl} title={song?.album} />
           <Column>

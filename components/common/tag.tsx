@@ -2,11 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { hashStringToRBG } from '../helpers';
 
-interface BookMediaProps {
-  media: string;
-}
-
-const MediaSpan = styled.span<{ color: string }>`
+const ColoredSpan = styled.span<{ color: string }>`
   background: #${(props) => props.color};
   padding: 0.2em;
   border-radius: 0.2em;
@@ -14,10 +10,10 @@ const MediaSpan = styled.span<{ color: string }>`
   -webkit-text-fill-color: white;
 `;
 
-const BookMedia: React.FC<BookMediaProps> = (props) => {
+const Tag: React.FC<{ tag: string }> = (props) => {
   return (
-    <MediaSpan color={hashStringToRBG(props.media)}>{props.media}</MediaSpan>
+    <ColoredSpan color={hashStringToRBG(props.tag)}>{props.tag}</ColoredSpan>
   );
 };
 
-export default BookMedia;
+export default Tag;

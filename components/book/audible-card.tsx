@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Book } from '../../lib/types';
+import { AudibleBook } from '../../lib/types';
 import Card from '../common/card';
 import CoverArt from '../common/cover-art';
 import { Column, Item, Row } from '../shared-styled';
 import { FaAudible } from 'react-icons/fa';
 
 interface AudibleCardProps {
-  book: Book;
+  book: AudibleBook;
 }
 
 const Description = styled.small`

@@ -5,7 +5,7 @@ import AudibleCard from '../components/book/audible-card';
 import Layout from '../components/layout/layout';
 import { Column, Row, Item } from '../components/shared-styled';
 import { getAudibleBook } from '../lib/audible';
-import { Book } from '../lib/types';
+import { AudibleBook } from '../lib/types';
 import SpotifyCard from '../components/spotify/spotify-card';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 interface HomeProps {
-  audibleBook: Book;
+  audibleBook: AudibleBook;
 }
 
 const Home: React.FC<HomeProps> = (props) => {

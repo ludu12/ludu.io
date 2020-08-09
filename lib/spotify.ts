@@ -1,6 +1,3 @@
-/* eslint-disable */
-// Disabling es lint because of camel case issue.. probably need to remove from config
-
 import axios from 'axios';
 import qs from 'querystring';
 
