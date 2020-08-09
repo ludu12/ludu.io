@@ -4,7 +4,6 @@ author: '${author}'
 date: '${date}'  
 media: '${media}'  
 mySummary: ''  
-cover: ''  
 link: ''  
 ---
 

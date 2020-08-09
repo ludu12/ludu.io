@@ -4,8 +4,10 @@ import {
   readMarkdownFileContent,
   reverse,
   sortByDate,
+  bookCover,
 } from './utils';
 import path from 'path';
+import { Book } from './types';
 
 const booksDirectory = path.join(process.cwd(), 'markdown/books');
 
@@ -15,17 +17,11 @@ export function getAllBooks() {
     sortByDate(
       getMarkdownFilenames(booksDirectory).map((id) => {
         const matterResult = readMarkdownFileContent(booksDirectory, id);
+        const bookMeta = matterResult.data as Book;
+        bookMeta.cover = bookCover(bookMeta.link);
         return {
           id,
-          ...(matterResult.data as {
-            title: string;
-            author: string;
-            date: string;
-            media: string;
-            mySummary: string;
-            cover: string;
-            link: string;
-          }),
+          ...bookMeta
         };
       })
     )
@@ -41,18 +37,13 @@ export function getAllBookIds() {
 export async function getBookData(id: string) {
   const matterResult = readMarkdownFileContent(booksDirectory, id);
   const contentHtml = await processContent(matterResult.content);
+  const bookMeta = matterResult.data as Book;
+  bookMeta.cover = bookCover(bookMeta.link)
 
   // Combine the data with the id and contentHtml
   return {
     id,
     contentHtml,
-    ...(matterResult.data as {
-      title: string;
-      author: string;
-      date: string;
-      media: string;
-      mySummary: string;
-      cover: string;
-    }),
+    ...bookMeta,
   };
 }

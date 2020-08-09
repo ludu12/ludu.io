@@ -35,7 +35,9 @@ const AudibleCard: React.FC<AudibleCardProps> = (props) => {
           <CoverArt cover={book.cover} title={book.title} />
           <Content>
             <Column>
-              <strong>{book.title}</strong>
+              <a href={book.link}>
+                <strong>{book.title}</strong>
+              </a>
               <small>
                 <i>By {book.author}</i>
               </small>

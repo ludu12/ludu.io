@@ -14,8 +14,8 @@ const NavA = styled.a<{ active?: boolean }>`
 `;
 
 const DynamicPath = styled.i`
-  color: ${(props) => props.theme.main.primary};
-  font-size: 1.5em;
+  color: ${(props) => props.theme.main.primaryVarient};
+  font-size: 1.75em;
 `;
 
 interface NavLinkProps {

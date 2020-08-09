@@ -4,7 +4,6 @@ author: 'Gene Kim, Kevin Behr, George Spafford'
 date: '2020-04-01'  
 media: 'Kindle'  
 mySummary: 'This is a book about DevOps but written like an all-too-relatable novel.'  
-cover: 'static/images/book/the-phoenix-project.jpg'  
 link: 'https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592'  
 ---
 

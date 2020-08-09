@@ -33,6 +33,6 @@ Some things that are currently interesting me and I enjoy thinking about are:
 - Iowa Hawkeyes 🦅
 
 #### Stuff I don't like:
-- Cliantro 🤮
+- Cilantro 🤮
 
 
