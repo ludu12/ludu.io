@@ -39,3 +39,9 @@ export function bookCover(link: string): string {
 
 export const sortByDate = R.sortBy(R.prop('date'));
 export const reverse = R.reverse;
+
+export function flattenAndGetDistinctValues(arr: string[][]): string[] {
+  const f: (arr: string[][]) => string[] = R.pipe(R.flatten, R.uniq);
+
+  return f(arr);
+}

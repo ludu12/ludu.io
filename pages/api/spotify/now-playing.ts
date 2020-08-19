@@ -7,7 +7,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const response = await getCurrentlyPlaying();
     const data = response.data;
 
-    if (data) {
+    if (data && data.currently_playing_type === 'track') {
       const song: SpotifySong = {
         isPlaying: data.is_playing,
         album: data.item.album.name,
@@ -19,6 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
       return res.status(200).json(song);
     }
+
     return res.status(response.status).json(response.data);
   } catch (error) {
     return res.status(error.response.status).json({ message: error.message });

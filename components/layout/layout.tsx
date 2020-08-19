@@ -7,7 +7,7 @@ import Footer from './footer';
 const Container = styled.div`
   max-width: 48rem;
   padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  margin: 3rem auto 2rem;
 `;
 
 interface LayoutProps {

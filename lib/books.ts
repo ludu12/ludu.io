@@ -4,7 +4,7 @@ import {
   loadPageChunk,
   queryCollection,
 } from './notion';
-import { bookCover } from './utils';
+import { bookCover, flattenAndGetDistinctValues } from './utils';
 
 const booksPageId = '5208296b-f00d-455f-b3a0-84c4a772648e';
 
@@ -83,5 +83,19 @@ export async function getNotionBooks(): Promise<Book[]> {
       console.warn(`Missing block data for "${blockId}"`);
       return null;
     }
+  });
+}
+
+export async function getNotionBookTopics(): Promise<string[]> {
+  const allBooks = await getNotionBooks();
+
+  return flattenAndGetDistinctValues(allBooks.map((b) => b.topic.split(',')));
+}
+
+export async function getNotionBooksByTopic(topic: string): Promise<Book[]> {
+  const allBooks = await getNotionBooks();
+  return allBooks.filter((b) => {
+    const topics = b.topic.split(',');
+    return topics.some((t) => t === topic);
   });
 }

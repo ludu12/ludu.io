@@ -21,7 +21,9 @@ const SpotifyCard: React.FC = () => {
     ['spotify', 'recently-played'],
     recentlyPlayed
   );
-  const song = now || recent?.[0];
+
+  const isPlaying = (s: SpotifySong) => Boolean(s?.isPlaying);
+  const song = isPlaying(now) ? now : recent?.[0];
 
   return (
     <Item>

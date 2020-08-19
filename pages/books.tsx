@@ -1,56 +1,47 @@
 import React from 'react';
 import Layout from '../components/layout/layout';
 import { GetStaticProps } from 'next';
-import { Book } from '../lib/types';
-import { List, ListItem, Row } from '../components/shared-styled';
-import CoverArt from '../components/common/cover-art';
-import { getNotionBooks } from '../lib/books';
+import { ListItem, ListLink, FlexList } from '../components/shared-styled';
+import { getNotionBookTopics } from '../lib/books';
 import Tag from '../components/common/tag';
+import Link from 'next/link';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const books = await getNotionBooks();
+  const topics = await getNotionBookTopics();
   return {
     props: {
-      books,
+      topics,
     },
     revalidate: 1,
   };
 };
 
-const Books: React.FC<{ books: Book[] }> = (props) => {
-  const { books } = props;
+const toLink = (topic) => {
+  return (
+    <Link href="/books/[topic]" as={`/books/${topic}`} passHref>
+      <ListLink>
+        <Tag key={topic} tag={topic} />
+      </ListLink>
+    </Link>
+  );
+};
+
+const Books: React.FC<{ topics: string[] }> = (props) => {
+  const { topics } = props;
+
   return (
     <Layout siteTitle="Books">
-      <h1>Books</h1>
+      <h1>Book Topics</h1>
       <p>
-        This is a list of books I have enjoyed. They're tagged by topic and by
-        the media in which I consumed it.
+        I'm been curating lists of books I've read concerning various topics.
+        Click on a topic to see some books I recommend.
       </p>
       <main>
-        <List>
-          {books.map((book) => (
-            <ListItem key={book.name}>
-              <Row align="flex-start">
-                <CoverArt cover={book.cover} title={book.name} height={7} />
-                <div>
-                  <a href={book.url}>{book.name}</a>
-                  <p>
-                    Topic:{' '}
-                    {book.topic.split(',').map((t) => {
-                      return <Tag key={t} tag={t} />;
-                    })}
-                  </p>
-                  <p>
-                    Media:{' '}
-                    {book.media.split(',').map((m) => {
-                      return <Tag key={m} tag={m} />;
-                    })}
-                  </p>
-                </div>
-              </Row>
-            </ListItem>
+        <FlexList>
+          {topics.map((topic) => (
+            <ListItem key={topic}>{toLink(topic)}</ListItem>
           ))}
-        </List>
+        </FlexList>
       </main>
     </Layout>
   );

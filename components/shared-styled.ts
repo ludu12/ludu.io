@@ -75,9 +75,16 @@ export const List = styled.ul`
   padding-inline-start: 0;
 `;
 
+export const FlexList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-inline-start: 0;
+`;
+
 export const ListItem = styled.li`
   display: flex;
-  margin: 1em 0;
+  margin: 1em 1em 1em 0;
 `;
 
 export const ListLink = styled.a`

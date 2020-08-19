@@ -39,8 +39,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
           <link rel="shortcut icon" href="/static/favicon/favicon.ico" />
           <link rel="shortcut icon" href="/static/favicon/favicon.ico" />
         </Head>
