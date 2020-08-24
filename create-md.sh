@@ -3,39 +3,35 @@
 helpFunction()
 {
    echo ""
-   echo "Usage: $0 -n name -a author -m media"
-   echo -e "\t-n Name of book"
-   echo -e "\t-a Author of book"
-   echo -e "\t-m Media book was consumed in"
+   echo "Usage: $0 -t Title of post"
+   echo -e "\t-s Summary of post"
    exit 1 # Exit script after printing help
 }
 
-while getopts "n:a:m:" opt
+while getopts "t:s:" opt
 do
    case "$opt" in
-      n ) name="$OPTARG" ;;
-      a ) author="$OPTARG" ;;
-      m ) media="$OPTARG" ;;
+      t ) title="$OPTARG" ;;
+      s ) summary="$OPTARG" ;;
       ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
    esac
 done
 
 # Print helpFunction in case parameters are empty
-if [ -z "$name" ] || [ -z "$author" ] || [ -z "$media" ]
+if [ -z "$title" ] || [ -z "$summary" ]
 then
    echo "Some or all of the parameters are empty";
    helpFunction
 fi
 
 # Lower case string and add dashes
-origName=$name
-name=$(echo "${name}" | awk '{print tolower($0)}')
-name=$(echo "${name}" | sed -e "s/ /-/g")
+origTitle=$title 
+title=$(echo "${title}" | awk '{print tolower($0)}')
+title=$(echo "${title}" | sed -e "s/ /-/g")
 
 # Fill in template
-content=$(sed -e "s/\${title}/${origName}/" \
-  -e "s/\${author}/${author}/" \
+content=$(sed -e "s/\${title}/${origTitle}/" \
   -e "s/\${date}/$(date '+%Y-%m-%d %H:%M:%S')/" \
-  -e "s/\${media}/${media}/" markdown/books/_template.md)
+  -e "s/\${summary}/${summary}/" markdown/posts/_template.md)
 
-echo "${content}" > "markdown/books/${name}.md"
+echo "${content}" > "markdown/posts/${title}.md"
