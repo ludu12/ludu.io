@@ -10,7 +10,15 @@ const SEO = {
     locale: 'en_IE',
     url: 'https://ludu.io',
     title,
-    description
+    description,
+    images: [
+      {
+        url: 'https://ludu.io/static/favicon/android-chrome-512x512.jpg',
+        alt: title,
+        width: 512,
+        height: 512
+      }
+    ]
   },
   twitter: {
     handle: '@LukeDunscombe',
