@@ -28,7 +28,7 @@ const NavLink: React.FC<NavLinkProps> = (props) => {
   const router = useRouter();
 
   // /page/path => ["", "page", "path"]
-  const paths = router.asPath.split('/');
+  const paths = router.asPath.split('/').map(decodeURI);
   const root = paths.slice(0, 2).join('/');
   const rest = paths.slice(2, paths.length);
   const isActive = props.href === root;
