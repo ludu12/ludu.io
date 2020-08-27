@@ -30,7 +30,11 @@ const Books: React.FC<{ topics: string[] }> = (props) => {
   const { topics } = props;
 
   return (
-    <Layout siteTitle="Books">
+    <Layout
+      siteTitle="Books"
+      url="/books"
+      description="I'm been curating lists of books I've read concerning various topics."
+    >
       <h1>Book Topics</h1>
       <p>
         I'm been curating lists of books I've read concerning various topics.

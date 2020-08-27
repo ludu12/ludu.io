@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import React from 'react';
+import { NextSeo } from 'next-seo';
 import Header from '../header/header';
 import styled from 'styled-components';
 import Footer from './footer';
@@ -13,15 +13,24 @@ const Container = styled.div`
 interface LayoutProps {
   children: React.ReactNode;
   siteTitle?: string;
+  url?: string;
+  description?: string;
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
-  const { children, siteTitle } = props;
+  const { children, siteTitle, url, description } = props;
   return (
     <Container>
-      <Head>
-        <title>{siteTitle} - ludu.io</title>
-      </Head>
+      <NextSeo
+        title={`${siteTitle} - ludu.io`}
+        description={description}
+        canonical={`https://ludu.io${url}`}
+        openGraph={{
+          url,
+          title: siteTitle,
+          description,
+        }}
+      />
       <Header />
       {children}
       <Footer />

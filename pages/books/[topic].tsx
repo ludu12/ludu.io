@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 import { Book } from '../../lib/types';
 import Layout from '../../components/layout/layout';
@@ -58,7 +58,7 @@ function toLinkTagWithSpace(text) {
 
 const Topic: React.FC<TopicProps> = (props) => {
   const { topic, books } = props;
-  const router = useRouter()
+  const router = useRouter();
 
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
@@ -66,11 +66,9 @@ const Topic: React.FC<TopicProps> = (props) => {
     return (
       <Layout siteTitle={'Books: ' + topic}>
         <h1>{topic}</h1>
-        <article>
-          Loading...
-        </article>
+        <article>Loading...</article>
       </Layout>
-    )
+    );
   }
 
   return (

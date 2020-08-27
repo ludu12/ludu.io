@@ -29,7 +29,7 @@ interface PostsProps {
 const Posts: React.FC<PostsProps> = (props) => {
   const { allPostsData } = props;
   return (
-    <Layout siteTitle="Blog">
+    <Layout siteTitle="Blog" url="/posts">
       <h1>Posts</h1>
       <main>
         <List>
