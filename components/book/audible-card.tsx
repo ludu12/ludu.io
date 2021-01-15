@@ -11,11 +11,11 @@ interface AudibleCardProps {
 }
 
 const Description = styled.small`
-  margin: 0.5em 0 0 0;
+  padding: 0.25em 0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
 
@@ -42,7 +42,7 @@ const AudibleCard: React.FC<AudibleCardProps> = (props) => {
                 <i>By {book.author}</i>
               </small>
             </Column>
-            <Description>{book.mySummary}</Description>
+            <Description title={book.mySummary}>{book.mySummary}</Description>
           </Content>
         </Row>
       </Card>

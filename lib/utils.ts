@@ -32,7 +32,7 @@ export const processContent = async (content: string) => {
 export function bookCover(link: string): string {
   const asin = link.match(/dp\/(.*)\/?$/);
   if (asin) {
-    return `https://images-na.ssl-images-amazon.com/images/P/${asin[1]}._LZZZZZZZ_.jpg`;
+    return `https://images-na.ssl-images-amazon.com/images/P/${asin[1]}.jpg`;
   }
   return 'static/images/book/placeholder.jpg';
 }

@@ -9,7 +9,7 @@ interface CardProps {
 }
 
 const TitleBar = styled(Row)`
-  padding: 0 0 1rem 0;
+  padding: 0 0 0.5rem 0;
 `;
 
 const Title = styled.h2`
@@ -19,7 +19,7 @@ const Title = styled.h2`
 
 const Content = styled.div`
   flex: 1;
-  height: 8em;
+  height: 7.5em;
   min-width: 15em;
 `;
 

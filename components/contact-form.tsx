@@ -44,8 +44,8 @@ const Status = styled.span`
 
 const ContactForm: React.FC = () => {
   const [form, setForm] = useState<{ email: string; message: string }>({
-    email: '',
-    message: '',
+      email: '',
+      message: '',
   });
 
   const [status, setStatus] = useState('idle');

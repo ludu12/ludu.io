@@ -1,10 +1,10 @@
 ---
-title: 'To Kill A Mockingbird'  
-author: 'Harper Lee'  
-date: '2020-06-12'  
+title: 'Sapiens: A Brief History of Humankind'  
+author: 'Yuval Noah Harari'  
+date: '2020-12-01'  
 media: 'Audible'  
-mySummary: 'This is novel about growing up in the deep south during a time of stark racial inequality. This book is both serious, humorous, and above all classic.'  
-link: 'https://www.amazon.com/Kill-Mockingbird-Harper-Lee/dp/0446310786'  
+mySummary: "This book gives a 1000 ft overview of the history of humankind. It puts into perspective just how shortly we've become masters of this world and credits the power of myth."     
+link: 'https://www.amazon.com/Sapiens-Humankind-Yuval-Noah-Harari/dp/0062316117'  
 ---
 
 ## What I liked

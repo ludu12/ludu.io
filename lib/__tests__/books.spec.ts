@@ -13,21 +13,22 @@ describe('Books', () => {
   describe('getNotionBooks', () => {
     it('should return all book info', async () => {
       const books = await getNotionBooks();
-      expect(books.length).toBe(19);
+      expect(books.length).toBe(24);
     });
   });
 
   describe('getNotionBookTopics', () => {
     it('should return all book topics', async () => {
       const topics = await getNotionBookTopics();
+      expect(topics.length).toBe(8)
       expect(topics).toStrictEqual([
-        'Habit',
+        'People',
         'Business',
-        'Fiction',
-        'Science Fiction',
+        'Mystery',
+        'SciFi',
+        'Habit',
         'Risk',
-        'Biography',
-        'Technology',
+        'How-To',
         'Philosophy',
       ]);
     });
@@ -35,8 +36,8 @@ describe('Books', () => {
 
   describe('getNotionBooksByTopic', () => {
     it('should return all books with this topic', async () => {
-      const books = await getNotionBooksByTopic('Fiction');
-      expect(books.length).toBe(1); // Girl w/ tattoo
+      const books = await getNotionBooksByTopic('Mystery');
+      expect(books.length).toBe(2); // Girl on Train, Girl w/ tattoo
     });
   });
 });
