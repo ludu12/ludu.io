@@ -20,7 +20,7 @@ describe('Books', () => {
   describe('getNotionBookTopics', () => {
     it('should return all book topics', async () => {
       const topics = await getNotionBookTopics();
-      expect(topics.length).toBe(8)
+      expect(topics.length).toBe(8);
       expect(topics).toStrictEqual([
         'People',
         'Business',

@@ -18,7 +18,12 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
-  const { children, siteTitle = 'Luke Dunscombe', url = '', description = '' } = props;
+  const {
+    children,
+    siteTitle = 'Luke Dunscombe',
+    url = '',
+    description = '',
+  } = props;
 
   const URL = `https://ludu.io${url}`;
   return (
