@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import React from 'react';
 import Providers from '../components/layout/providers';
-import { ReactQueryDevtools } from 'react-query-devtools';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config.js';

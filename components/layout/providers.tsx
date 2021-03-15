@@ -4,6 +4,7 @@ import { ThemeContext } from '../../styles/theme-context';
 import useDarkMode from 'use-dark-mode';
 import React from 'react';
 import GlobalStyles from '../../styles/global-styles';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const dark = theme(darkTheme);
 const light = theme(lightTheme);
@@ -11,6 +12,8 @@ const light = theme(lightTheme);
 interface ProvidersProps {
   children: React.ReactNode;
 }
+
+const queryClient = new QueryClient();
 
 const Providers: React.FC<ProvidersProps> = (props) => {
   const darkMode = useDarkMode(false);
@@ -25,8 +28,10 @@ const Providers: React.FC<ProvidersProps> = (props) => {
       <ThemeContext.Provider
         value={{ darkMode: darkMode.value, toggle: darkMode.toggle }}
       >
-        <GlobalStyles />
-        {props.children}
+        <QueryClientProvider client={queryClient}>
+          <GlobalStyles />
+          {props.children}
+        </QueryClientProvider>
       </ThemeContext.Provider>
     </ThemeProvider>
   );

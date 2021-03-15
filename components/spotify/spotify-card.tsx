@@ -3,7 +3,7 @@ import { FaSpotify } from 'react-icons/fa';
 import { SpotifySong } from '../../lib/types';
 import Card from '../common/card';
 import CoverArt from '../common/cover-art';
-import { Column, Italic, Item, Row, Strong } from '../shared-styled';
+import { Column, Italic, Row, Strong } from '../shared-styled';
 import Axios from 'axios';
 import { useQuery } from 'react-query';
 
@@ -26,22 +26,20 @@ const SpotifyCard: React.FC = () => {
   const song = isPlaying(now) ? now : recent?.[0];
 
   return (
-    <Item>
-      <Card
-        title={song?.isPlaying ? 'Now Playing' : 'Recently Played'}
-        icon={<FaSpotify />}
-      >
-        <Row align="flex-start" justify="flex-start">
-          <CoverArt cover={song?.albumCoverUrl} title={song?.album} />
-          <Column>
-            <a href={song?.url}>
-              <Strong>{song?.title}</Strong>
-            </a>
-            <Italic>{song?.artist}</Italic>
-          </Column>
-        </Row>
-      </Card>
-    </Item>
+    <Card
+      title={song?.isPlaying ? 'Now Playing' : 'Recently Played'}
+      icon={<FaSpotify />}
+    >
+      <Row align="flex-start" justify="flex-start">
+        <CoverArt cover={song?.albumCoverUrl} title={song?.album} />
+        <Column>
+          <a href={song?.url}>
+            <Strong>{song?.title}</Strong>
+          </a>
+          <Italic>{song?.artist}</Italic>
+        </Column>
+      </Row>
+    </Card>
   );
 };
 

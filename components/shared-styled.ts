@@ -9,8 +9,8 @@ export const Row = styled.div<{
   justify-content: ${(props) => props.justify || 'space-between'};
   display: flex;
   flex-direction: row;
-  ${(props) => (props.grow ? 'flex-grow: 1;' : 'false')}
-  ${(props) => (props.wrap ? 'flex-wrap: wrap;' : 'false')}
+  ${(props) => (props.grow ? 'flex-grow: 1;' : 'false')};
+  ${(props) => (props.wrap ? 'flex-wrap: wrap;' : 'false')};
   align-items: ${(props) => props.align || 'center'};
 `;
 

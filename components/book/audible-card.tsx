@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AudibleBook } from '../../lib/types';
 import Card from '../common/card';
 import CoverArt from '../common/cover-art';
-import { Column, Item, Row } from '../shared-styled';
+import { Column, Row } from '../shared-styled';
 import { FaAudible } from 'react-icons/fa';
 
 interface AudibleCardProps {
@@ -29,24 +29,22 @@ const AudibleCard: React.FC<AudibleCardProps> = (props) => {
   }
 
   return (
-    <Item>
-      <Card title="Current Audible Book" icon={<FaAudible />}>
-        <Row align="flex-start" justify="flex-start">
-          <CoverArt cover={book.cover} title={book.title} />
-          <Content>
-            <Column>
-              <a href={book.link}>
-                <strong>{book.title}</strong>
-              </a>
-              <small>
-                <i>By {book.author}</i>
-              </small>
-            </Column>
-            <Description title={book.mySummary}>{book.mySummary}</Description>
-          </Content>
-        </Row>
-      </Card>
-    </Item>
+    <Card title="Audible Book" icon={<FaAudible />}>
+      <Row align="flex-start" justify="flex-start">
+        <CoverArt cover={book.cover} title={book.title} />
+        <Content>
+          <Column>
+            <a href={book.link}>
+              <strong>{book.title}</strong>
+            </a>
+            <small>
+              <i>By {book.author}</i>
+            </small>
+          </Column>
+          <Description title={book.mySummary}>{book.mySummary}</Description>
+        </Content>
+      </Row>
+    </Card>
   );
 };
 

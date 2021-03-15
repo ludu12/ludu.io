@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import AudibleCard from '../components/book/audible-card';
 import Layout from '../components/layout/layout';
-import { Column, Row, Item } from '../components/shared-styled';
+import { Column, Item, Row } from '../components/shared-styled';
 import { getAudibleBook } from '../lib/audible';
 import { AudibleBook } from '../lib/types';
 import SpotifyCard from '../components/spotify/spotify-card';
