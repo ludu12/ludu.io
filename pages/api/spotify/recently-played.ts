@@ -1,8 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getRecentlyPlayed } from '../../../lib/spotify';
 import { SpotifySong } from '../../../lib/types';
+import { cors } from '../../../lib/cors';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  await cors(req, res);
+
   try {
     const response = await getRecentlyPlayed(5);
     const data = response.data;
