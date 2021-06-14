@@ -19,17 +19,19 @@ interface BookColumns {
 
 function toPlainText(val) {
   // Notion API returns an array of arrays, just use first value from array and join inner with comma
-  return val[0]
-    .map((v) => {
-      if (typeof v === 'string') {
-        return v;
-      } else if (Array.isArray(v)) {
-        // if it's bold or a link or something else
-        return v[1];
-      }
-    })
-    .join(' ')
-    .trim();
+  return (
+    val?.[0]
+      ?.map((v) => {
+        if (typeof v === 'string') {
+          return v;
+        } else if (Array.isArray(v)) {
+          // if it's bold or a link or something else
+          return v[1];
+        }
+      })
+      ?.join(' ')
+      ?.trim() || null
+  );
 }
 
 export async function getNotionBooks(): Promise<Book[]> {

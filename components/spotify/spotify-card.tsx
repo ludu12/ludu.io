@@ -15,11 +15,12 @@ async function recentlyPlayed(): Promise<SpotifySong[]> {
   return (await Axios.get('/api/spotify/recently-played')).data;
 }
 
-const SpotifyCard: React.FC = () => {
+const SpotifyCard: React.FC<{ initialSong: SpotifySong }> = (props) => {
   const { data: now } = useQuery(['spotify', 'now-playing'], nowPlaying);
   const { data: recent } = useQuery(
     ['spotify', 'recently-played'],
-    recentlyPlayed
+    recentlyPlayed,
+    { initialData: [props.initialSong] }
   );
 
   const isPlaying = (s: SpotifySong) => Boolean(s?.isPlaying);

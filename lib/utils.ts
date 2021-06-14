@@ -30,11 +30,11 @@ export const processContent = async (content: string) => {
 };
 
 export function bookCover(link: string): string {
-  const asin = link.match(/dp\/(.*)\/?$/);
+  const asin = link?.match(/dp\/(.*)\/?$/);
   if (asin) {
     return `https://images-na.ssl-images-amazon.com/images/P/${asin[1]}.jpg`;
   }
-  return 'static/images/book/placeholder.jpg';
+  return '/static/images/book/placeholder.jpg';
 }
 
 export const sortByDate = R.sortBy(R.prop('date'));

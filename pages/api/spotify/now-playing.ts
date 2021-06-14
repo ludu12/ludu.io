@@ -1,29 +1,13 @@
 import { getCurrentlyPlaying } from '../../../lib/spotify';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { SpotifySong } from '../../../lib/types';
 import { cors } from '../../../lib/cors';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   await cors(req, res);
 
   try {
-    const response = await getCurrentlyPlaying();
-    const data = response.data;
-
-    if (data && data.currently_playing_type === 'track') {
-      const song: SpotifySong = {
-        isPlaying: data.is_playing,
-        album: data.item.album.name,
-        title: data.item.name,
-        artist: data.item.artists.map((a) => a.name).join(', '),
-        albumCoverUrl: data.item.album.images[0].url,
-        url: data.item.external_urls.spotify,
-      };
-
-      return res.status(200).json(song);
-    }
-
-    return res.status(response.status).json(response.data);
+    const { status, data } = await getCurrentlyPlaying();
+    return res.status(status).json(data);
   } catch (error) {
     return res.status(error.response.status).json({ message: error.message });
   }

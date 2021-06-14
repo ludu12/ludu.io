@@ -1,5 +1,6 @@
 import axios from 'axios';
 import qs from 'querystring';
+import { SpotifySong } from './types';
 
 const getAccessToken = async () => {
   const response = await axios.post(
@@ -19,9 +20,12 @@ const getAccessToken = async () => {
   return response.data;
 };
 
-export async function getCurrentlyPlaying() {
+export async function getCurrentlyPlaying(): Promise<{
+  status: number;
+  data: SpotifySong;
+}> {
   const { access_token } = await getAccessToken();
-  return await axios.get(
+  const response = await axios.get(
     'https://api.spotify.com/v1/me/player/currently-playing',
     {
       headers: {
@@ -29,11 +33,28 @@ export async function getCurrentlyPlaying() {
       },
     }
   );
+
+  const data = response.data;
+
+  if (data && data.currently_playing_type === 'track') {
+    const song: SpotifySong = {
+      isPlaying: data.is_playing,
+      album: data.item.album.name,
+      title: data.item.name,
+      artist: data.item.artists.map((a) => a.name).join(', '),
+      albumCoverUrl: data.item.album.images[0].url,
+      url: data.item.external_urls.spotify,
+    };
+    return { status: 200, data: song };
+  }
+  return { status: response.status, data: response.data };
 }
 
-export async function getRecentlyPlayed(limit = 10) {
+export async function getRecentlyPlayed(
+  limit = 10
+): Promise<{ status: number; data: SpotifySong[] }> {
   const { access_token } = await getAccessToken();
-  return await axios.get(
+  const response = await axios.get(
     `https://api.spotify.com/v1/me/player/recently-played?limit=${limit}`,
     {
       headers: {
@@ -41,4 +62,24 @@ export async function getRecentlyPlayed(limit = 10) {
       },
     }
   );
+
+  const data = response.data;
+
+  if (data && data.items) {
+    const songs: SpotifySong[] = data.items.map((item) => {
+      const track = item.track;
+      return {
+        isPlaying: false,
+        album: track.album.name,
+        title: track.name,
+        artist: track.artists.map((a) => a.name).join(', '),
+        albumCoverUrl: track.album.images[0].url,
+        url: track.external_urls.spotify,
+      };
+    });
+
+    return { status: 200, data: songs };
+  }
+
+  return { status: response.status, data: response.data };
 }

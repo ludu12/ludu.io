@@ -5,20 +5,24 @@ import AudibleCard from '../components/book/audible-card';
 import Layout from '../components/layout/layout';
 import { Column, Item, Row } from '../components/shared-styled';
 import { getAudibleBook } from '../lib/audible';
-import { AudibleBook } from '../lib/types';
+import { AudibleBook, SpotifySong } from '../lib/types';
 import SpotifyCard from '../components/spotify/spotify-card';
+import { getRecentlyPlayed } from '../lib/spotify';
 
 export const getStaticProps: GetStaticProps = async () => {
   const audibleBook = await getAudibleBook();
+  const spotifySong = (await getRecentlyPlayed(1)).data[0];
   return {
     props: {
       audibleBook,
+      spotifySong,
     },
   };
 };
 
 interface HomeProps {
   audibleBook: AudibleBook;
+  spotifySong: SpotifySong;
 }
 
 const Home: React.FC<HomeProps> = (props) => {
@@ -44,12 +48,12 @@ const Home: React.FC<HomeProps> = (props) => {
             <a href={'mailto:luke@ludu.io'}>contact me</a> directly.
           </p>
         </Column>
-        <Row wrap>
+        <Row $wrap>
           <Item>
             <AudibleCard book={props.audibleBook} />
           </Item>
           <Item>
-            <SpotifyCard />
+            <SpotifyCard initialSong={props.spotifySong} />
           </Item>
         </Row>
       </main>
