@@ -1,19 +1,22 @@
-import { processContent, readMarkdownFileContent } from './utils';
+import {
+  getLastUpdated,
+  processContent,
+  readMarkdownFileContent,
+} from './utils';
 import path from 'path';
 
 export async function getUses() {
-  const matterResult = readMarkdownFileContent(
-    path.join(process.cwd(), 'markdown'),
-    'uses'
-  );
+  const directory = path.join(process.cwd(), 'markdown');
+  const matterResult = readMarkdownFileContent(directory, 'uses');
+  const lastUpdated = getLastUpdated(path.join(directory, 'uses.md'));
   const contentHtml = await processContent(matterResult.content);
 
   return {
     contentHtml,
+    lastUpdated,
     ...(matterResult.data as {
       title: string;
       description: string;
-      lastUpdated: string;
     }),
   };
 }

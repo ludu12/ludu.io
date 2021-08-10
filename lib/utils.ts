@@ -23,6 +23,11 @@ export const readMarkdownFileContent = (directory: string, id: string) => {
   return matter(fileContents);
 };
 
+export const getLastUpdated = (fullPath: string): string => {
+  const { mtime } = fs.statSync(fullPath);
+  return mtime.toISOString();
+};
+
 // Use remark to convert markdown into HTML string
 export const processContent = async (content: string) => {
   const processedContent = await remark().use(html).process(content);

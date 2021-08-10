@@ -2,6 +2,8 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import Layout from '../components/layout/layout';
 import { getUses } from '../lib/uses';
+import { Italic, Row, Thumbnail } from '../components/shared-styled';
+import DateFormat from '../components/common/date-format';
 
 export const getStaticProps: GetStaticProps = async () => {
   const uses = await getUses();
@@ -28,6 +30,9 @@ const Uses: React.FC<UsesProps> = (props) => {
     <Layout siteTitle="Resume">
       <h1>{uses.title}</h1>
       <main>
+        <Italic>
+          Last Updated <DateFormat dateString={uses.lastUpdated} />
+        </Italic>
         <p>{uses.description}</p>
         <div dangerouslySetInnerHTML={{ __html: uses.contentHtml }} />
       </main>

@@ -1,7 +1,6 @@
 ---
 title: "Uses"  
 description: "Here's a list of (some) of the technologies I use."  
-lastUpdated: '2020-07-23'
 ---
 
 ## Editor
