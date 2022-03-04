@@ -25,13 +25,13 @@ then
 fi
 
 # Lower case string and add dashes
-origTitle=$title 
+origTitle=$title
 title=$(echo "${title}" | awk '{print tolower($0)}')
 title=$(echo "${title}" | sed -e "s/ /-/g")
 
 # Fill in template
 content=$(sed -e "s/\${title}/${origTitle}/" \
   -e "s/\${date}/$(date '+%Y-%m-%d %H:%M:%S')/" \
-  -e "s/\${summary}/${summary}/" markdown/posts/_template.md)
+  -e "s/\${summary}/${summary}/" src/markdown/posts/_template.md)
 
-echo "${content}" > "markdown/posts/${title}.md"
+echo "${content}" > "src/markdown/posts/${title}.md"
