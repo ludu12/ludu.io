@@ -3,13 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import DateFormat from '../components/common/date-format';
 import Layout from '../components/layout/layout';
-import {
-  Column,
-  Italic,
-  List,
-  ListItem,
-  ListLink,
-} from '../components/shared-styled';
+import { Headline, Italic, List, ListItem, MainLink } from '../components/shared-styled';
 import { getAllPosts } from '../lib/posts';
 import { Post } from '../lib/types';
 
@@ -30,20 +24,20 @@ const Posts: React.FC<PostsProps> = (props) => {
   const { allPostsData } = props;
   return (
     <Layout title="Blog" url="/posts">
-      <h1>Posts</h1>
+      <Headline>Posts</Headline>
       <main>
         <List>
           {allPostsData.map(({ id, date, title, summary }) => (
             <ListItem key={id}>
-              <Column>
+              <div className={'flex flex-col'}>
                 <Link href="posts/[id]" as={`/posts/${id}`} passHref>
-                  <ListLink>{title}</ListLink>
+                  <MainLink className={'text-2xl'}>{title}</MainLink>
                 </Link>
                 <Italic>
                   <DateFormat dateString={date} />
                 </Italic>
-                <p>{summary}</p>
-              </Column>
+                <p className={'py-4'}>{summary}</p>
+              </div>
             </ListItem>
           ))}
         </List>

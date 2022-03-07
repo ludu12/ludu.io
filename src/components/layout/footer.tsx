@@ -14,7 +14,6 @@ export const SocialLink: React.FC<React.HTMLProps<HTMLAnchorElement>> = (
 
 const Footer: React.FC = () => {
   return (
-    <div className={'w-full mt-8 px-12'}>
       <div className={'flex flex-row justify-around'}>
         <SocialLink href="https://twitter.com/LukeDunscombe">
           <FaTwitter />
@@ -29,7 +28,6 @@ const Footer: React.FC = () => {
           <FaRegEnvelope />
         </SocialLink>
       </div>
-    </div>
   );
 };
 

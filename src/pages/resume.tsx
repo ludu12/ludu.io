@@ -3,7 +3,7 @@ import Layout from '../components/layout/layout';
 import { GetStaticProps } from 'next';
 import { getResume } from '../lib/resume';
 import DateFormat from '../components/common/date-format';
-import { Italic, Row, Thumbnail } from '../components/shared-styled';
+import { Headline, Italic, Thumbnail } from '../components/shared-styled';
 
 export const getStaticProps: GetStaticProps = async () => {
   const resume = await getResume();
@@ -28,15 +28,15 @@ const Resume: React.FC<ResumeProps> = (props) => {
   const { resume } = props;
   return (
     <Layout title="Resume">
-      <h1>{resume.title}</h1>
+      <Headline>{resume.title}</Headline>
       <main>
-        <Row justify="flex-start">
-          <Thumbnail src={resume.image} alt={resume.image} />
+        <div className={'flex flex-row items-center justify-start'}>
+          <Thumbnail src={resume.image} alt={resume.image}/>
           <Italic>
-            Last Updated <DateFormat dateString={resume.lastUpdated} />
+            Last Updated <DateFormat dateString={resume.lastUpdated}/>
           </Italic>
-        </Row>
-        <div dangerouslySetInnerHTML={{ __html: resume.contentHtml }} />
+        </div>
+        <div className={'unreset'} dangerouslySetInnerHTML={{ __html: resume.contentHtml }}/>
       </main>
     </Layout>
   );

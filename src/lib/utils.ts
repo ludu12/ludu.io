@@ -2,8 +2,6 @@ import R from 'ramda';
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
 
 export const getMarkdownFilename = (filename: string) =>
   filename.replace(/\.md$/, '');
@@ -26,12 +24,6 @@ export const readMarkdownFileContent = (directory: string, id: string) => {
 export const getLastUpdated = (fullPath: string): string => {
   const { mtime } = fs.statSync(fullPath);
   return mtime.toISOString();
-};
-
-// Use remark to convert markdown into HTML string
-export const processContent = async (content: string) => {
-  const processedContent = await remark().use(html).process(content);
-  return processedContent.toString();
 };
 
 export function bookCover(link: string): string {

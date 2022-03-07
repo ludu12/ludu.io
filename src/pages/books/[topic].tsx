@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import { Book } from '../../lib/types';
 import Layout from '../../components/layout/layout';
-import { Row, List, ListItem } from '../../components/shared-styled';
+import { Headline, List, ListItem, MainLink } from '../../components/shared-styled';
 import CoverArt from '../../components/common/cover-art';
 import { getNotionBooksByTopic, getNotionBookTopics } from '../../lib/books';
 import Tag from '../../components/common/tag';
@@ -76,12 +76,12 @@ const Topic: React.FC<TopicProps> = (props) => {
 
   return (
     <Layout title={'Books: ' + topic}>
-      <h1>{topic}</h1>
-      <p>
+      <Headline>{topic}</Headline>
+      <p className={'pt-4'}>
         This is a list of books I have enjoyed and recommend about the topic of{' '}
         <b>{topic}</b>.
       </p>
-      <p>
+      <p className={'pt-4'}>
         They&apos;re tagged by other relevant topics and by the media in which I
         consumed it.
       </p>
@@ -90,14 +90,14 @@ const Topic: React.FC<TopicProps> = (props) => {
         <List>
           {books.map((book) => (
             <ListItem key={book.name}>
-              <Row align="flex-start">
+              <div className={'flex flex-row items-start justify-start'}>
                 <CoverArt cover={book.cover} title={book.name} height={7} />
                 <div>
-                  <a href={book.url}>{book.name}</a>
-                  <p>Topic: {book.topic.split(',').map(toLinkTagWithSpace)}</p>
+                  <MainLink href={book.url}>{book.name}</MainLink>
+                  <p className={'py-4'}>Topic: {book.topic.split(',').map(toLinkTagWithSpace)}</p>
                   <p>Media: {book.media.split(',').map(toTagWithSpace)}</p>
                 </div>
-              </Row>
+              </div>
             </ListItem>
           ))}
         </List>

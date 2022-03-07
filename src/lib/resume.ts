@@ -1,9 +1,9 @@
 import {
   getLastUpdated,
-  processContent,
   readMarkdownFileContent,
 } from './utils';
 import path from 'path';
+import { processContent } from './remark';
 
 export async function getResume() {
   const directory = path.join(process.cwd(), 'src/markdown');

@@ -8,7 +8,7 @@ interface BurgerProps {
 const BurgerMenuButton: React.FC<BurgerProps> = ({ open, onClick }) => {
   return (
     <button
-      className={`text-xs hamburger hamburger--spring ${
+      className={`text-xs hamburger hamburger--squeeze ${
         open ? 'is-active' : ''
       }`}
       onClick={onClick}
@@ -18,7 +18,7 @@ const BurgerMenuButton: React.FC<BurgerProps> = ({ open, onClick }) => {
       }}
     >
       <span className="hamburger-box">
-        <span className="hamburger-inner bg-red-50" />
+        <span className="hamburger-inner" />
       </span>
     </button>
   );

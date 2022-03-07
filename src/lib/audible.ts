@@ -1,6 +1,7 @@
-import { processContent, readMarkdownFileContent, bookCover } from './utils';
+import { readMarkdownFileContent, bookCover } from './utils';
 import path from 'path';
 import { AudibleBook } from './types';
+import { processContent } from './remark';
 
 export async function getAudibleBook() {
   const matterResult = readMarkdownFileContent(

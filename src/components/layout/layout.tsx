@@ -6,7 +6,6 @@ import NavLink from '../header/nav-link';
 import Footer from './footer';
 import BurgerMenuButton from '../header/buger-menu-button';
 import Brand from '../header/brand';
-import DarkModeButton from '../header/dark-mode-button';
 
 const Links: { href: string; text: string }[] = [
   { href: '/', text: 'Home' },
@@ -24,7 +23,7 @@ const MobileNavMenu: React.FC<{ open: boolean }> = (props) => {
 
   return (
     <div
-      className={`transition-all duration-500 absolute top-0 left-0 w-full z-40 ${
+      className={`transition-all duration-500 absolute top-0 left-0 bg-white w-full z-10 ${
         props.open ? 'visible' : 'hidden'
       }`}
     >
@@ -34,20 +33,20 @@ const MobileNavMenu: React.FC<{ open: boolean }> = (props) => {
         }`}
       >
         <nav
-          className={
-            'flex flex-col items-center text-center w-full h-screen pt-32 text-xl'
-          }
+          className={'flex flex-col items-center w-full h-screen pt-20 text-xl'}
         >
-          {Links.map((l, i) => (
-            <NavLink key={i} {...l} />
-          ))}
+          <ul className={`px-4 ${mainClass}`}>
+            {Links.map((l, i) => (
+              <NavLink key={i} {...l} />
+            ))}
+          </ul>
         </nav>
       </div>
     </div>
   );
 };
 
-const mainClass = 'w-full max-w-6xl p-4';
+const mainClass = 'w-full max-w-3xl p-4';
 
 interface LayoutProps {
   title?: string;
@@ -68,8 +67,8 @@ const Layout: React.FC<LayoutProps> = (props) => {
     <>
       <Head>
         <title>{`${props.title} - ludu.io`}</title>
-        <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="IE=edge" httpEquiv="X-UA-Compatible"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
       </Head>
       <NextSeo
         title={`${title} - ludu.io`}
@@ -82,42 +81,29 @@ const Layout: React.FC<LayoutProps> = (props) => {
         }}
       />
       <div
-        className={`flex flex-col items-center w-full py-16 ${
+        className={`flex flex-col items-center w-full ${
           open ? 'fixed' : ''
         }`}
       >
-        <header className="bg-pale-pink-600 w-full flex shadow-lg justify-center fixed h-20 top-0 z-50">
+        <header className="w-full flex justify-center items-center z-20">
           <div className={mainClass}>
-            <nav className={'mt-auto mr-10'}>
-              <div className={'flex flex-row items-center justify-between'}>
-                <Brand />
-                <div className={'flex flex-row items-center'}>
-                  <DarkModeButton />
-                  <BurgerMenuButton
-                    onClick={() => setOpen(!open)}
-                    open={open}
-                  />
-                </div>
-              </div>
-            </nav>
             <div className="flex justify-between items-center">
               <div className="flex">
-                <Brand />
-                <nav className={'hidden md:flex ml-4'}>
-                  {Links.map((l, i) => (
-                    <NavLink key={i} {...l} />
-                  ))}
-                </nav>
+                <Brand/>
               </div>
-              <div className={'md:hidden'}>
-                <BurgerMenuButton onClick={() => setOpen(!open)} open={open} />
+              <div>
+                <BurgerMenuButton onClick={() => setOpen(!open)} open={open}/>
               </div>
             </div>
           </div>
         </header>
-        <MobileNavMenu open={open} />
-        <div className={`${mainClass} pt-8`}>{props.children}</div>
-        <Footer />
+        <MobileNavMenu open={open}/>
+        <div className={`${mainClass} relative`}>
+          {props.children}
+        </div>
+        <div className={mainClass}>
+          <Footer/>
+        </div>
       </div>
     </>
   );

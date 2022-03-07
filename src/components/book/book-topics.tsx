@@ -7,7 +7,10 @@ const unique = (value: string, index: number, self: string[]) => {
 
 const BookTopics: React.FC<{ books: Book[] }> = (props) => {
   const { books } = props;
-  const topics = books.reduce((acc, b) => acc.concat(b.topic.split(',')), [] as string[]);
+  const topics = books.reduce(
+    (acc, b) => acc.concat(b.topic.split(',')),
+    [] as string[]
+  );
 
   console.log(topics.filter(unique));
   return <div />;

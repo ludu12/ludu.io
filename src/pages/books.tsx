@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout/layout';
 import { GetStaticProps } from 'next';
-import { ListItem, ListLink, FlexList } from '../components/shared-styled';
+import { Headline, ListItem } from '../components/shared-styled';
 import { getNotionBookTopics } from '../lib/books';
 import Tag from '../components/common/tag';
 import Link from 'next/link';
@@ -19,9 +19,9 @@ export const getStaticProps: GetStaticProps = async () => {
 const toLink = (topic: string) => {
   return (
     <Link href="/books/[topic]" as={`/books/${topic}`} passHref>
-      <ListLink>
-        <Tag key={topic} tag={topic} />
-      </ListLink>
+      <a className={'text-xl'}>
+        <Tag key={topic} tag={topic}/>
+      </a>
     </Link>
   );
 };
@@ -35,17 +35,17 @@ const Books: React.FC<{ topics: string[] }> = (props) => {
       url="/books"
       description="I'm been curating lists of books I've read concerning various topics."
     >
-      <h1>Book Topics</h1>
-      <p>
+      <Headline>Book Topics</Headline>
+      <p className={'py-4'}>
         I&apos;m been curating lists of books I&apos;ve read concerning various
         topics. Click on a topic to see some books I recommend.
       </p>
       <main>
-        <FlexList>
+        <ul className={'flex flex-wrap'}>
           {topics.map((topic) => (
             <ListItem key={topic}>{toLink(topic)}</ListItem>
           ))}
-        </FlexList>
+        </ul>
       </main>
     </Layout>
   );

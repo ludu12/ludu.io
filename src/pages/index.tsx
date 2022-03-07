@@ -7,6 +7,7 @@ import { getAudibleBook } from '../lib/audible';
 import { AudibleBook, SpotifySong } from '../lib/types';
 import SpotifyCard from '../components/spotify/spotify-card';
 import { getRecentlyPlayed } from '../lib/spotify';
+import { Headline, MainLink } from '../components/shared-styled';
 
 export const getStaticProps: GetStaticProps = async () => {
   const audibleBook = await getAudibleBook();
@@ -27,7 +28,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = (props) => {
   return (
     <Layout title="Home">
-      <h1 className={'text-3xl font-bold'}>Hi, I&apos;m Luke</h1>
+      <Headline>Hi, I&apos;m Luke</Headline>
       <main>
         <div className={'flex flex-col'}>
           <p className={'my-4'}>
@@ -37,14 +38,14 @@ const Home: React.FC<HomeProps> = (props) => {
           </p>
           <p className={'my-4'}>
             My online resume can also be found{' '}
-            <Link href={'/resume'}>
-              <a>here</a>
+            <Link href={'/resume'} passHref>
+              <MainLink>here</MainLink>
             </Link>
             .
           </p>
           <p className={'my-4'}>
             Feel free to reach out on any of my social medias, or{' '}
-            <a href={'mailto:luke@ludu.io'}>contact me</a> directly.
+            <MainLink href={'mailto:luke@ludu.io'}>contact me</MainLink> directly.
           </p>
         </div>
         <div className={'flex flex-row flex-wrap justify-between items-center'}>

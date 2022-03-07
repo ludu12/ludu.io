@@ -18,8 +18,8 @@ const NavLink: React.FC<NavLinkProps> = (props) => {
   const rest = paths.slice(2, paths.length);
   const isActive = props.href === root;
 
-  const className = clsx('text-2xl transition hover:text-primary-500', {
-    'text-primary-300': isActive,
+  const className = clsx('text-2xl transition hover:text-primary-600', {
+    'text-primary-500': isActive,
   });
 
   return (
@@ -30,7 +30,7 @@ const NavLink: React.FC<NavLinkProps> = (props) => {
         </a>
       </Link>
       {isActive && rest.length > 0 && (
-        <i className={'text-lg text-primary-300'}> &#x2f; {rest.join('>')}</i>
+        <i className={'text-2xl text-primary-300 font-light'}> &#x2f; {rest.join('>')}</i>
       )}
     </li>
   );

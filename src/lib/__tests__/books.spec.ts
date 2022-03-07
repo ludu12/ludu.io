@@ -8,12 +8,12 @@ import {
   getNotionBooksByTopic,
 } from '../books';
 
-// Just using this test for testing out reverse engineered Notion API
+// Just using this test for testing out Notion API
 describe('Books', () => {
   describe('getNotionBooks', () => {
     it('should return all book info', async () => {
       const books = await getNotionBooks();
-      expect(books.length).toBe(24);
+      expect(books.length).toEqual(25);
     });
   });
 
@@ -23,13 +23,13 @@ describe('Books', () => {
       expect(topics.length).toBe(8);
       expect(topics).toStrictEqual([
         'People',
+        'Philosophy',
         'Business',
         'Mystery',
         'SciFi',
-        'Habit',
         'Risk',
+        'Habit',
         'How-To',
-        'Philosophy',
       ]);
     });
   });

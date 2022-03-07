@@ -4,7 +4,7 @@ import DateFormat from '../../components/common/date-format';
 import { Post } from '../../lib/types';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Layout from '../../components/layout/layout';
-import { Row, Thumbnail, Italic } from '../../components/shared-styled';
+import { Headline, Italic, Thumbnail } from '../../components/shared-styled';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
@@ -34,8 +34,8 @@ const Id: React.FC<PostProps> = ({ postData }) => {
   return (
     <Layout title={postData.title}>
       <article>
-        <h1>{postData.title}</h1>
-        <Row justify="flex-start">
+        <Headline>{postData.title}</Headline>
+        <div className={'flex flex-row items-center justify-start py-4'}>
           <Thumbnail
             src={'/static/images/profile.jpg'}
             alt={'This is a picture of me.'}
@@ -43,8 +43,8 @@ const Id: React.FC<PostProps> = ({ postData }) => {
           <Italic>
             <DateFormat dateString={postData.date} />
           </Italic>
-        </Row>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </div>
+        <div className={'unreset'} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
   );

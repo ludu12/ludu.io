@@ -3,6 +3,7 @@ import { AudibleBook } from '../../lib/types';
 import Card from '../common/card';
 import CoverArt from '../common/cover-art';
 import { FaAudible } from 'react-icons/fa';
+import { MainLink } from '../shared-styled';
 
 interface AudibleCardProps {
   book: AudibleBook;
@@ -16,15 +17,21 @@ const AudibleCard: React.FC<AudibleCardProps> = (props) => {
   }
 
   return (
-    <Card title="Audible Book" icon={<FaAudible/>}>
+    <Card title="Audible Book" icon={<FaAudible />}>
       <div className={'flex flex-row justify-start items-start'}>
-        <CoverArt cover={book.cover} title={book.title}/>
+        <CoverArt cover={book.cover} title={book.title} />
         <div>
           <div className={'flex flex-col'}>
-            <a className={'leading-tight text-primary-500 hover:text-primary-300 hover:underline'} href={book.link}>
+
+            <MainLink
+              className={'leading-tight hover:underline'}
+              href={book.link}
+            >
               <strong>{book.title}</strong>
-            </a>
-            <span className={'italic text-xs text-gray-800'}>By {book.author}</span>
+            </MainLink>
+            <span className={'italic text-xs text-gray-800'}>
+              By {book.author}
+            </span>
           </div>
           <small
             className={'py-1 overflow-hidden overflow-ellipsis description'}

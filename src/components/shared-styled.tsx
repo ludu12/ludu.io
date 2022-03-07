@@ -10,7 +10,7 @@ export const Container: React.FC = (props) => {
 export const Paper: React.FC = (props) => {
   const { children } = props;
   const className = clsx(
-    'flex overflow-hidden p-4 m-1 border rounded shadow-lg'
+    'flex overflow-hidden p-4 m-1 border rounded shadow-lg',
   );
   return <div className={className}>{children}</div>;
 };
@@ -18,7 +18,7 @@ export const Paper: React.FC = (props) => {
 export const Button: React.FC<React.HTMLProps<HTMLButtonElement>> = (props) => {
   const { children } = props;
   const className = clsx(
-    'p-2 text-white bg-primary-500 rounded transition focus:outline-none disabled:bg-gray-500'
+    'p-2 text-white bg-primary-500 rounded transition focus:outline-none disabled:bg-gray-500',
   );
   return <div className={className}>{children}</div>;
 };
@@ -28,36 +28,28 @@ export const List: React.FC = (props) => {
   return <ul>{children}</ul>;
 };
 
-export const FlexList: React.FC = (props) => {
-  const { children } = props;
-  const className = clsx('flex flex-wrap');
-
-  return <ul className={className}>{children}</ul>;
-};
-
 export const ListItem: React.FC = (props) => {
   const { children } = props;
-  const className = clsx('flex m-4');
+  const className = clsx('flex my-4 mr-4');
 
   return <li className={className}>{children}</li>;
 };
 
-export const ListLink: React.FC<React.HTMLProps<HTMLAnchorElement>> = (
-  props
+export const MainLink: React.FC<React.HTMLProps<HTMLAnchorElement>> = (
+  props,
 ) => {
-  const { children } = props;
-  const className = clsx('text-lg');
+  const { children, className, ...rest } = props;
+  const clsxName = clsx('transition text-primary-500 hover:text-primary-600', className);
 
-  return <li className={className}>{children}</li>;
+  return <a className={clsxName} {...rest}>{children}</a>;
 };
 
 export const Thumbnail: React.FC<React.HTMLProps<HTMLImageElement>> = (
-  props
+  props,
 ) => {
-  const { children } = props;
-  const className = clsx('h-8 w-2 rounded-2xl mr-4');
+  const className = clsx('h-8 w-8 rounded-2xl mr-4');
 
-  return <li className={className}>{children}</li>;
+  return <img alt={props.alt} src={props.src} className={className}/>
 };
 
 export const Italic: React.FC = (props) => {
@@ -65,4 +57,12 @@ export const Italic: React.FC = (props) => {
   const className = clsx('text-gray-500');
 
   return <i className={className}>{children}</i>;
+};
+
+export const Headline: React.FC = (props) => {
+  const { children } = props;
+  const className = clsx(
+    'text-3xl font-bold my-2',
+  );
+  return <h1 className={className}>{children}</h1>;
 };

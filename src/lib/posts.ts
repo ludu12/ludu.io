@@ -1,11 +1,11 @@
 import {
   getMarkdownFilenames,
-  processContent,
   readMarkdownFileContent,
   reverse,
   sortByDate,
 } from './utils';
 import path from 'path';
+import { processContent } from './remark';
 
 const postsDirectory = path.join(process.cwd(), 'src/markdown/posts');
 

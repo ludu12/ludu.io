@@ -3,7 +3,7 @@ import { FaSpotify } from 'react-icons/fa';
 import { SpotifySong } from '../../lib/types';
 import Card from '../common/card';
 import CoverArt from '../common/cover-art';
-import { Italic } from '../shared-styled';
+import { MainLink } from '../shared-styled';
 import Axios from 'axios';
 import { useQuery } from 'react-query';
 
@@ -20,7 +20,7 @@ const SpotifyCard: React.FC<{ initialSong: SpotifySong }> = (props) => {
   const { data: recent } = useQuery(
     ['spotify', 'recently-played'],
     recentlyPlayed,
-    { initialData: [props.initialSong] }
+    { initialData: [props.initialSong] },
   );
 
   const isPlaying = (s?: SpotifySong) => Boolean(s?.isPlaying);
@@ -29,14 +29,17 @@ const SpotifyCard: React.FC<{ initialSong: SpotifySong }> = (props) => {
   return (
     <Card
       title={song?.isPlaying ? 'Now Playing' : 'Recently Played'}
-      icon={<FaSpotify />}
+      icon={<FaSpotify/>}
     >
       <div className={'flex flex-row justify-start items-start'}>
-        <CoverArt cover={song?.albumCoverUrl || ''} title={song?.album || ''} />
+        <CoverArt cover={song?.albumCoverUrl || ''} title={song?.album || ''}/>
         <div className={'flex flex-col'}>
-          <a className={'leading-tight text-primary-500 hover:text-primary-300 hover:underline'} href={song?.url}>
+          <MainLink
+            className={'leading-tight hover:underline'}
+            href={song?.url}
+          >
             <strong>{song?.title}</strong>
-          </a>
+          </MainLink>
           <span className={'italic text-sm text-gray-800'}>{song?.artist}</span>
         </div>
       </div>

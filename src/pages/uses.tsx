@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import Layout from '../components/layout/layout';
 import { getUses } from '../lib/uses';
-import { Italic } from '../components/shared-styled';
+import { Headline, Italic } from '../components/shared-styled';
 import DateFormat from '../components/common/date-format';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -28,13 +28,13 @@ const Uses: React.FC<UsesProps> = (props) => {
   const { uses } = props;
   return (
     <Layout title="Resume">
-      <h1>{uses.title}</h1>
+      <Headline>{uses.title}</Headline>
       <main>
         <Italic>
           Last Updated <DateFormat dateString={uses.lastUpdated} />
         </Italic>
-        <p>{uses.description}</p>
-        <div dangerouslySetInnerHTML={{ __html: uses.contentHtml }} />
+        <p className={'py-4'}>{uses.description}</p>
+        <div  className={'unreset'} dangerouslySetInnerHTML={{ __html: uses.contentHtml }} />
       </main>
     </Layout>
   );
