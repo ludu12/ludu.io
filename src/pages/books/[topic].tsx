@@ -41,21 +41,21 @@ interface TopicProps {
 
 function toTagWithSpace(text: string) {
   return (
-    <>
+    <React.Fragment key={text}>
       <Tag key={text} tag={text} />{' '}
-    </>
+    </React.Fragment>
   );
 }
 
 function toLinkTagWithSpace(text: string) {
   return (
-    <>
+    <React.Fragment key={text}>
       <Link href="/books/[topic]" as={`/books/${text}`} passHref>
         <a>
           <Tag key={text} tag={text} />
         </a>
       </Link>{' '}
-    </>
+    </React.Fragment>
   );
 }
 

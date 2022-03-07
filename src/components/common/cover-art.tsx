@@ -7,10 +7,13 @@ interface CoverArtProps {
 }
 
 const CoverArt: React.FC<CoverArtProps> = (props) => {
-  const { height, cover, title} = props;
+  const { height = 5, cover, title} = props;
   return (
     <img
-      className={`h-[${height}rem] w-[5rem] mr-4`}
+      style={{
+        height: `${height}rem`
+      }}
+      className={`w-[5rem] mr-4`}
       src={cover}
       alt={title}
       height={height}

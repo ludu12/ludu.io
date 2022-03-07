@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Column, Container, Row } from './shared-styled';
+import { Button, Container } from './shared-styled';
 
 const ContactForm: React.FC = () => {
   const [form, setForm] = useState<{ email: string; message: string }>({
@@ -43,7 +43,7 @@ const ContactForm: React.FC = () => {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-        <Column>
+        <div>
           <label>Email</label>
           <input
             type="email"
@@ -52,8 +52,8 @@ const ContactForm: React.FC = () => {
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             value={form.email}
           />
-        </Column>
-        <Column>
+        </div>
+        <div>
           <label>Message</label>
           <textarea
             name="message"
@@ -61,11 +61,11 @@ const ContactForm: React.FC = () => {
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             value={form.message}
           />
-        </Column>
-        <Row justify="flex-start">
+        </div>
+        <div>
           <Button disabled={status !== 'idle'}>Submit</Button>
           <span>{showStatus()}</span>
-        </Row>
+        </div>
       </form>
     </Container>
   );
