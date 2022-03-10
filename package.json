@@ -11,6 +11,7 @@
     "lint-staged": "lint-staged --allow-empty",
     "format": "prettier --write **/*.{js,ts,tsx}",
     "type-check": "tsc --pretty --noEmit",
+    "resume": "node resume.js",
     "prepare": "husky install",
     "test": "jest"
   },
