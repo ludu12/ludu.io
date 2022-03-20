@@ -226,3 +226,6 @@
     border: 2px inset;
 }
 
+.unreset a {
+    @apply transition text-primary-500 hover:text-primary-600
+}

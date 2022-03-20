@@ -12,10 +12,10 @@ const newData = data.replace(re, `
 \\pagenumbering{gobble}
 ---
 # Luke Dunscombe
-Des Moines, IA · dunscombe1@gmail.com · 515-890-7803 · [ludu.io/resume](https://ludu.io/resume)
+Des Moines, IA · dunscombe1@gmail.com · 515-890-7803 · Downloaded from [ludu.io/resume](https://ludu.io/resume)
 `);
 fs.writeFileSync('tmp.md', newData);
-execSync('pandoc -V geometry:margin=5mm -V mainfont="Georgia" -s -o resume.pdf tmp.md --pdf-engine=xelatex');
+execSync('pandoc -V geometry:margin=5mm -V mainfont="Georgia" -s -o public/resume.pdf tmp.md --pdf-engine=xelatex');
 
 // Remove temp
 fs.unlinkSync('tmp.md');
