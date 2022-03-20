@@ -15,7 +15,7 @@ const newData = data.replace(re, `
 Des Moines, IA · dunscombe1@gmail.com · 515-890-7803 · Downloaded from [ludu.io/resume](https://ludu.io/resume)
 `);
 fs.writeFileSync('tmp.md', newData);
-execSync('pandoc -V geometry:margin=5mm -V mainfont="Georgia" -s -o public/resume.pdf tmp.md --pdf-engine=xelatex');
+execSync('pandoc -V colorlinks=true -V urlcolor=TealBlue -V toccolor=gray -V geometry:margin=5mm -V mainfont="Georgia" -s -o public/resume.pdf  tmp.md --pdf-engine=xelatex --css pandoc.css');
 
 // Remove temp
 fs.unlinkSync('tmp.md');
