@@ -16,7 +16,7 @@ The projects that I've worked on through Lean Techniques have mostly been produc
 - [Almaco](https://www.almaco.com/)
 
 ***Music League (July 2021 - Current)***  
-- Mobile Development (React Native** + Expo)  
+- Mobile Development (React Native + Expo)  
 - App store deployment ([iOS](https://apps.apple.com/us/app/music-league/id1589815321) + [Android](https://play.google.com/store/apps/details?id=com.musicleague.app))  
 - Product development for playlist generating game  
 - [Music League](https://app.musicleague.com)  
