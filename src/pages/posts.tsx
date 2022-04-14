@@ -36,7 +36,7 @@ const Posts: React.FC<PostsProps> = (props) => {
                 <Italic>
                   <DateFormat dateString={date} />
                 </Italic>
-                <p className={'py-4'}>{summary}</p>
+                <p className={'py-1'}>{summary}</p>
               </div>
             </ListItem>
           ))}

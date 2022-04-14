@@ -27,7 +27,7 @@ interface UsesProps {
 const Uses: React.FC<UsesProps> = (props) => {
   const { uses } = props;
   return (
-    <Layout title="Resume">
+    <Layout title="Uses">
       <Headline>{uses.title}</Headline>
       <main>
         <Italic>

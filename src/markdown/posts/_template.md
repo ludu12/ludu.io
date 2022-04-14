@@ -1,5 +1,5 @@
 ---
-title: '${title}'  
-date: '${date}'  
-summary: '${summary}'
+title: "${title}"  
+date: "${date}"  
+summary: "${summary}"
 ---
