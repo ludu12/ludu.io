@@ -2,6 +2,7 @@
 title: "Can't Hurt Me #5"  
 date: "2022-04-14 08:10:22"  
 summary: "Visualize success and challenges. Challenge #5 from David Goggins' book Can't Hurt Me"
+isDraft: true
 ---
 
 # Motivation

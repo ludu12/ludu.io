@@ -2,6 +2,7 @@
 title: "Can't Hurt Me #2"  
 date: "2022-04-14 08:08:31"  
 summary: "The Accountability Mirror. Challenge #2 from David Goggins book Can't Hurt Me"
+isDraft: true
 ---
 
 # Motivation

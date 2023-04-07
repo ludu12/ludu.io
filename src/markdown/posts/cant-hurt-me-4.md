@@ -2,6 +2,7 @@
 title: "Can't Hurt Me #4"  
 date: "2022-04-14 08:10:00"  
 summary: "Taking souls. Challenge #4 from David Goggins' book Can't Hurt Me"
+isDraft: true
 ---
 
 # Motivation  

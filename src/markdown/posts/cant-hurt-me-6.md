@@ -2,6 +2,7 @@
 title: "Can't Hurt Me #6"
 date: "2022-04-14 08:10:56"  
 summary: "The Cookie Jar. Challenge #6 from David Goggins' book Can't Hurt Me"
+isDraft: true
 ---
 
 # Motivation

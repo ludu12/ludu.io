@@ -18,13 +18,14 @@ export function getAllPosts() {
         return {
           id,
           ...(matterResult.data as {
+            isDraft: boolean;
             title: string;
             date: string;
             summary: string;
             image: string;
           }),
         };
-      })
+      }).filter(x => !x.isDraft)
     )
   );
 }

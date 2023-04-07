@@ -2,6 +2,7 @@
 title: "Can't Hurt Me #3"  
 date: "2022-04-14 08:09:23"  
 summary: "Do something every day that makes you uncomfortable. Challenge #3 from David Goggins' book Can't Hurt Me"
+isDraft: true
 ---
 
 # Motivation

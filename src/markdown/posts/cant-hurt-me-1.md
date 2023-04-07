@@ -2,6 +2,7 @@
 title: "Can't Hurt Me #1"  
 date: "2022-04-14 08:07:33"  
 summary: "What was your bad hand? Challenge #1 from David Goggins' book Can't Hurt Me"
+isDraft: true
 ---
 
 # Motivation
