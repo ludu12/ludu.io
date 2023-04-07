@@ -24,10 +24,8 @@ const NavLink: React.FC<NavLinkProps> = (props) => {
 
   return (
     <li>
-      <Link href={props.href} passHref>
-        <a className={className}>
+      <Link href={props.href} passHref className={className}>
           {props.emoji} {props.text}
-        </a>
       </Link>
       {isActive && rest.length > 0 && (
         <i className={'text-2xl text-primary-300 font-light'}> &#x2f; {rest.join('>')}</i>

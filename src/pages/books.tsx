@@ -18,10 +18,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const toLink = (topic: string) => {
   return (
-    <Link href="/books/[topic]" as={`/books/${topic}`} passHref>
-      <a className={'text-xl'}>
+    <Link href="/books/[topic]" as={`/books/${topic}`} passHref className={'text-xl'}>
         <Tag key={topic} tag={topic}/>
-      </a>
     </Link>
   );
 };
