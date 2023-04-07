@@ -36,7 +36,7 @@ const SpotifyCard: React.FC<{ initialSong: SpotifySong }> = (props) => {
         <div className={'flex flex-col'}>
           <MainLink
             className={'leading-tight hover:underline'}
-            href={song?.url}
+            href={song?.url || ''}
           >
             <strong>{song?.title}</strong>
           </MainLink>

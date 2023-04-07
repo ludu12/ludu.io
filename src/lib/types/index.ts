@@ -34,5 +34,5 @@ export interface SpotifySong {
   title?: string;
   artist?: string;
   albumCoverUrl?: string;
-  url?: string;
+  url: string;
 }
